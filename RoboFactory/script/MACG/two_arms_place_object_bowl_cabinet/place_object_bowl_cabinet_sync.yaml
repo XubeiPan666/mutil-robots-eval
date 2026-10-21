@@ -1,0 +1,40 @@
+# Phase Configuration for TwoArmsPlaceObjectBowlCabinet - Sync (rule-based)
+# agent1 opens the cabinet drawer; agent0 picks up the bowl and places it inside.
+# Sync variant: agent0 moves toward the bowl concurrently with agent1 opening the drawer.
+#
+# State machine:
+#   Phase 1 (agent1 open drawer, agent0 approach bowl) --[both_grip, min_steps:3, delay:5]--> Phase 2
+#   Phase 2 (agent0 place bowl in drawer, agent1 hold drawer) --[agent0_release]--> Phase 3
+#   Phase 3 (agent0 recover, agent1 hold drawer)
+
+mode: "rule_based"
+initial_phase: 1
+gripper_threshold: 0.035
+min_steps_per_phase: 2
+
+phase_instructions:
+  1:
+    agent0: "Pick up the bowl."
+    agent1: "Open the cabinet drawer."
+  2:
+    agent0: "Place the bowl in the drawer."
+    agent1: "Hold the drawer open."
+  3:
+    agent0: "Recover."
+    agent1: "Hold the drawer open."
+
+transitions:
+  - from: 1
+    to: 2
+    condition: "both_grip"
+    min_steps: 3
+    delay: 5
+  - from: 2
+    to: 3
+    condition: "agent0_release"
+
+# Timestep-based fallback schedule
+phase_schedule:
+  1-6: 1
+  7-11: 2
+  12+: 3

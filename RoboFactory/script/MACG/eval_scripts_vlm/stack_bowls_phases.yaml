@@ -1,0 +1,78 @@
+# Sequential stack-bowl instructions. Instruction text matches training data.
+mode: "vlm"
+initial_phase: 1
+gripper_threshold: 0.02
+min_steps_per_phase: 2
+
+task_brief: >-
+  Agent0 first picks its bowl and places it on the tray on the left.
+  After agent0 releases, agent1 picks its bowl and stacks it on the first
+  bowl at the right side of the tray. Each arm recovers after placing.
+
+phase_semantics:
+  1: >-
+    Agent0 approaches and grasps its bowl while agent1 waits. Stay in this
+    phase until agent0 visibly holds the bowl with its gripper closed.
+  2: >-
+    Agent0 carries the bowl to the left plate/tray and places it while
+    agent1 waits. Advance only after the bowl is supported by the tray and
+    agent0 has opened its gripper to release it.
+  3: >-
+    Agent0 recovers while agent1 approaches and grasps its bowl. Stay until
+    agent1 visibly holds the bowl with its gripper closed.
+  4: >-
+    Agent1 carries its bowl to the right and stacks it on agent0's bowl
+    while agent0 waits. Advance only after the upper bowl is supported by
+    the lower bowl and agent1 opens its gripper.
+  5: >-
+    Agent1 recovers while agent0 waits. This is the terminal instruction
+    phase.
+
+atomic_actions:
+  - "Pick up the bowl."
+  - "Place the bowl on the plate on the left."
+  - "Place the bowl on the plate on the right."
+  - "Wait for the other robots."
+  - "Recover."
+
+phase_instructions:
+  1:
+    agent0: "Pick up the bowl."
+    agent1: "Wait for the other robots."
+  2:
+    agent0: "Place the bowl on the plate on the left."
+    agent1: "Wait for the other robots."
+  3:
+    agent0: "Recover."
+    agent1: "Pick up the bowl."
+  4:
+    agent0: "Wait for the other robots."
+    agent1: "Place the bowl on the plate on the right."
+  5:
+    agent0: "Wait for the other robots."
+    agent1: "Recover."
+
+# Rule detector runs only in shadow mode for agreement metrics.
+transitions:
+  - from: 1
+    to: 2
+    condition: "agent0_grip"
+  - from: 2
+    to: 3
+    condition: "agent0_release"
+  - from: 3
+    to: 4
+    condition: "agent1_grip"
+  - from: 4
+    to: 5
+    condition: "agent1_release"
+
+vlm:
+  model: "qwen/qwen3.5-27b"
+  camera: "head_camera_vlm"
+  every_k: 1
+  max_retries: 2
+  request_timeout_s: 60
+  max_total_wait_s: 90
+  min_confidence: 0.6
+  image_upscale: 2

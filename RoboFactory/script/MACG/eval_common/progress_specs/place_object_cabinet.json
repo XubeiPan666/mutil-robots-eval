@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "task": "place_object_cabinet",
+  "selectors": {
+    "env_id": ["TwoArmsPlaceObjectCabinet", "TwoArmsPlaceObjectCabinet-v1"],
+    "status": ["two_arms_place_object_cabinet"]
+  },
+  "defaults": {"debounce_samples": 2, "sync_window_seconds": 45.0},
+  "signals": {
+    "agent0_holds_object": {"agent": "agent0"},
+    "agent1_holds_drawer_handle": {"agent": "agent1"},
+    "drawer_opened_by_agent1": {"agent": "agent1"},
+    "object_in_drawer": {"agent": "agent0"}
+  },
+  "modes": {
+    "indomain": {
+      "phase_basenames": ["place_object_cabinet_indomain"],
+      "milestones": [
+        {"id": "open_drawer", "agent": "agent1", "predicate": {"all": ["agent1_holds_drawer_handle", "drawer_opened_by_agent1"]}},
+        {"id": "pick_object", "agent": "agent0", "predicate": "agent0_holds_object", "depends_on": ["open_drawer"]},
+        {"id": "place_object", "agent": "agent0", "predicate": "object_in_drawer", "depends_on": ["pick_object"]}
+      ],
+      "order_constraints": [
+        {"before": "open_drawer", "after": "pick_object"},
+        {"before": "pick_object", "after": "place_object"}
+      ]
+    },
+    "sync": {
+      "phase_basenames": ["place_object_cabinet_sync"],
+      "milestones": [
+        {"id": "pick_object", "agent": "agent0", "predicate": "agent0_holds_object", "hold_signal": "agent0_holds_object", "sync_group": "sync_open_pick"},
+        {"id": "open_drawer", "agent": "agent1", "predicate": {"all": ["agent1_holds_drawer_handle", "drawer_opened_by_agent1"]}, "hold_signal": "agent1_holds_drawer_handle", "sync_group": "sync_open_pick"},
+        {"id": "place_object", "agent": "agent0", "predicate": "object_in_drawer", "depends_on": ["pick_object", "open_drawer"]}
+      ],
+      "sync_groups": [{"id": "sync_open_pick", "members": ["pick_object", "open_drawer"], "reject_early_release": true}],
+      "order_constraints": [
+        {"before": "pick_object", "after": "place_object"},
+        {"before": "open_drawer", "after": "place_object"}
+      ]
+    }
+  }
+}

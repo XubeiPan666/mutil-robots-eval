@@ -1,0 +1,53 @@
+name: dual_cam_task_config
+
+# Image shape for both cameras
+image_shape: &image_shape [3, 224, 224]
+
+shape_meta: &shape_meta
+  # acceptable types: rgb, low_dim
+  obs:
+    # Two cameras: wrist camera and global head camera
+    img1:
+      shape: *image_shape
+      type: rgb
+    img2:
+      shape: *image_shape
+      type: rgb
+    # Robot joint state
+    agent_pos:
+      shape: [9]  # qpos: 7 joints + 2 grippers
+      type: low_dim
+  action:
+    shape: [8]  # 7 joints + 1 gripper (normalized)
+
+# Environment runner (for evaluation, not used during training from zarr)
+env_runner:
+  _target_: diffusion_policy.env_runner.pusht_image_runner.PushTImageRunner
+  n_train: 6
+  n_train_vis: 2
+  train_start_seed: 0
+  n_test: 50
+  n_test_vis: 4
+  legacy_test: True
+  test_start_seed: 100000
+  max_steps: 300
+  n_obs_steps: ${n_obs_steps}
+  n_action_steps: ${n_action_steps}
+  fps: 10
+  past_action: ${past_action_visible}
+  n_envs: null
+
+# Dataset configuration for dual camera zarr data
+dataset:
+  _target_: diffusion_policy.dataset.robot_image_dataset.RobotImageDataset
+  zarr_path: data/useless.zarr  # Will be overridden by command line
+  horizon: ${horizon}
+  pad_before: ${eval:'${n_obs_steps}-1'}
+  pad_after: ${eval:'${n_action_steps}-1'}
+  seed: 42
+  val_ratio: 0.02
+  max_train_episodes: null
+  # No data augmentation for clean data
+  augmented_zarr_path: data/zarr_data/pick_car_aug_20h5.zarr
+  # augmented_zarr_path: null
+  augment_prob: 0.5

@@ -1,0 +1,45 @@
+# Phase Configuration for TwoArmsPushCube - In-domain (tcp_rule)
+# Sequential: agent0 push first, then agent1 push
+#
+# State machine:
+#   Phase 1 (agent0 approach) --[agent0_tcp_low]--> Phase 2 (agent0 push)
+#   Phase 2 --[agent0_tcp_high]--> Phase 3 (agent1 approach)
+#   Phase 3 --[agent1_tcp_low]--> Phase 4 (agent1 push)
+
+mode: "tcp_rule"
+initial_phase: 1
+z_threshold: 0.05
+z_tcp_high: 0.03
+min_steps_per_phase: 2
+
+phase_instructions:
+  1:
+    agent0: "Move to the blue cube."
+    agent1: "Wait for the other robot."
+  2:
+    agent0: "Push the blue cube to the target."
+    agent1: "Wait for the other robot."
+  3:
+    agent0: "Wait for the other robot."
+    agent1: "Move to the green cube."
+  4:
+    agent0: "Wait for the other robot."
+    agent1: "Push the green cube to the target."
+
+transitions:
+  - from: 1
+    to: 2
+    condition: "agent0_tcp_low"
+  - from: 2
+    to: 3
+    condition: "agent0_tcp_high"
+  - from: 3
+    to: 4
+    condition: "agent1_tcp_low"
+
+# Timestep-based fallback schedule
+phase_schedule:
+  1-3: 1
+  3-6: 2
+  6-8: 3
+  8+: 4

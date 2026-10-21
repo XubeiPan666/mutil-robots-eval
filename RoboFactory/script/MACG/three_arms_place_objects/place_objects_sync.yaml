@@ -1,0 +1,56 @@
+# Phase Configuration for ThreeArmsPlaceObjects - Sync (rule-based)
+# All three agents pick their objects simultaneously, then all place simultaneously.
+# Use with status="three_arms_place_objects_123_123"
+#
+# State machine (3 phases, purely gripper-triggered):
+#   Phase 1 (all 3 pick)  --[all_grip]-->    Phase 2 (all 3 place)
+#   Phase 2               --[all_release]--> Phase 3 (done / recover)
+
+mode: "rule_based"
+initial_phase: 1
+gripper_threshold: 0.032
+min_steps_per_phase: 1
+
+phase_instructions:
+  1:
+    agent0: "Pick up the can."
+    agent1: "Pick up the box."
+    agent2: "Pick up the burger."
+  2:
+    agent0: "Place the can on the target."
+    agent1: "Wait for the other robots."
+    agent2: "Wait for the other robots."
+  3:
+    agent0: "Recover."
+    agent1: "Place the box on the target."
+    agent2: "Wait for the other robots."
+  4:
+    agent0: "Wait for the other robots."
+    agent1: "Recover."
+    agent2: "Place the burger on the target."
+  5:
+    agent0: "Wait for the other robots."
+    agent1: "Wait for the other robots."
+    agent2: "Recover."
+
+
+transitions:
+  - from: 1
+    to: 2
+    condition: "all_grip"         # all 3 agents have closed their grippers
+  - from: 2
+    to: 3
+    condition: "agent0_release"      # all 3 agents have released their objects
+  - from: 3
+    to: 4
+    condition: "agent1_release"      # all 3 agents have released their objectss
+  - from: 4
+    to: 5
+    condition: "agent2_release"      # all 3 agents have released their objects
+
+
+# Timestep-based fallback schedule
+phase_schedule:
+  1-5: 1
+  5-15: 2
+  15+: 3

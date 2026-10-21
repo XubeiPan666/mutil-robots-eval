@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "task": "place_burger_fries",
+  "selectors": {
+    "env_id": ["TwoArmsPlaceBurgerFries", "TwoArmsPlaceBurgerFries-v1"],
+    "status": ["two_arms_place_burger_fries_12", "two_arms_place_burger_fries_21"]
+  },
+  "defaults": {"debounce_samples": 2, "sync_window_seconds": 45.0},
+  "signals": {
+    "agent0_holds_burger": {"agent": "agent0"},
+    "agent1_holds_fries": {"agent": "agent1"},
+    "burger_placed_on_tray": {"agent": "agent0"},
+    "fries_placed_on_tray": {"agent": "agent1"}
+  },
+  "modes": {
+    "indomain": {
+      "phase_basenames": ["place_burger_fries_indomain"],
+      "milestones": [
+        {"id": "pick_burger", "agent": "agent0", "predicate": "agent0_holds_burger"},
+        {"id": "place_burger", "agent": "agent0", "predicate": "burger_placed_on_tray", "depends_on": ["pick_burger"]},
+        {"id": "pick_fries", "agent": "agent1", "predicate": "agent1_holds_fries", "depends_on": ["place_burger"]},
+        {"id": "place_fries", "agent": "agent1", "predicate": "fries_placed_on_tray", "depends_on": ["pick_fries"]}
+      ],
+      "order_constraints": [
+        {"before": "pick_burger", "after": "place_burger"},
+        {"before": "place_burger", "after": "pick_fries"},
+        {"before": "pick_fries", "after": "place_fries"}
+      ]
+    },
+    "reorder": {
+      "phase_basenames": ["place_burger_fries_reorder"],
+      "milestones": [
+        {"id": "pick_fries", "agent": "agent1", "predicate": "agent1_holds_fries"},
+        {"id": "place_fries", "agent": "agent1", "predicate": "fries_placed_on_tray", "depends_on": ["pick_fries"]},
+        {"id": "pick_burger", "agent": "agent0", "predicate": "agent0_holds_burger", "depends_on": ["place_fries"]},
+        {"id": "place_burger", "agent": "agent0", "predicate": "burger_placed_on_tray", "depends_on": ["pick_burger"]}
+      ],
+      "order_constraints": [
+        {"before": "pick_fries", "after": "place_fries"},
+        {"before": "place_fries", "after": "pick_burger"},
+        {"before": "pick_burger", "after": "place_burger"}
+      ]
+    },
+    "sync": {
+      "phase_basenames": ["place_burger_fries_sync"],
+      "milestones": [
+        {"id": "pick_burger", "agent": "agent0", "predicate": "agent0_holds_burger", "hold_signal": "agent0_holds_burger", "sync_group": "sync_pick"},
+        {"id": "pick_fries", "agent": "agent1", "predicate": "agent1_holds_fries", "hold_signal": "agent1_holds_fries", "sync_group": "sync_pick"},
+        {"id": "place_burger", "agent": "agent0", "predicate": "burger_placed_on_tray", "depends_on": ["pick_burger", "pick_fries"]},
+        {"id": "place_fries", "agent": "agent1", "predicate": "fries_placed_on_tray", "depends_on": ["place_burger"]}
+      ],
+      "sync_groups": [{"id": "sync_pick", "members": ["pick_burger", "pick_fries"], "reject_early_release": true}],
+      "order_constraints": [
+        {"before": "pick_burger", "after": "place_burger"},
+        {"before": "pick_fries", "after": "place_burger"},
+        {"before": "place_burger", "after": "place_fries"}
+      ]
+    },
+    "syncreorder": {
+      "phase_basenames": ["place_burger_fries_syncreorder"],
+      "milestones": [
+        {"id": "pick_fries", "agent": "agent1", "predicate": "agent1_holds_fries", "hold_signal": "agent1_holds_fries", "sync_group": "sync_pick"},
+        {"id": "pick_burger", "agent": "agent0", "predicate": "agent0_holds_burger", "hold_signal": "agent0_holds_burger", "sync_group": "sync_pick"},
+        {"id": "place_fries", "agent": "agent1", "predicate": "fries_placed_on_tray", "depends_on": ["pick_burger", "pick_fries"]},
+        {"id": "place_burger", "agent": "agent0", "predicate": "burger_placed_on_tray", "depends_on": ["place_fries"]}
+      ],
+      "sync_groups": [{"id": "sync_pick", "members": ["pick_burger", "pick_fries"], "reject_early_release": true}],
+      "order_constraints": [
+        {"before": "pick_burger", "after": "place_fries"},
+        {"before": "pick_fries", "after": "place_fries"},
+        {"before": "place_fries", "after": "place_burger"}
+      ]
+    }
+  }
+}

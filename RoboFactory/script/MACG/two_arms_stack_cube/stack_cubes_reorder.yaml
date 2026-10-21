@@ -1,0 +1,52 @@
+# Phase Configuration for TwoArmsStackCube - Reorder (rule-based)
+# Reversed: agent1 pick/place first, then agent0 pick/stack
+#
+# State machine:
+#   Phase 1 (agent1 pick) --[agent1_grip]--> Phase 2 (agent1 place)
+#   Phase 2 --[agent1_release]--> Phase 3 (agent0 pick)
+#   Phase 3 --[agent0_grip]--> Phase 4 (agent0 stack)
+#   Phase 4 --[agent0_release]--> Phase 5 (recover)
+
+mode: "rule_based"
+initial_phase: 1
+gripper_threshold: 0.02
+min_steps_per_phase: 2
+
+phase_instructions:
+  1:
+    agent0: "Wait for the other robot."
+    agent1: "Pick up the green cube."
+  2:
+    agent0: "Wait for the other robot."
+    agent1: "Place the green cube on the target."
+  3:
+    agent0: "Pick up the blue cube."
+    agent1: "Recover."
+  4:
+    agent0: "Place the blue cube on the target."
+    agent1: "Wait for the other robot."
+  5:
+    agent0: "Recover."
+    agent1: "Wait for the other robot."
+
+transitions:
+  - from: 1
+    to: 2
+    condition: "agent1_grip"
+  - from: 2
+    to: 3
+    condition: "agent1_release"
+  - from: 3
+    to: 4
+    condition: "agent0_grip"
+  - from: 4
+    to: 5
+    condition: "agent0_release"
+
+# Timestep-based fallback schedule
+phase_schedule:
+  1-3: 1
+  3-6: 2
+  6-8: 3
+  8-11: 4
+  11+: 5

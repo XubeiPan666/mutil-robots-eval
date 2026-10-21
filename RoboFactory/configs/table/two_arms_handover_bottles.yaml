@@ -1,0 +1,280 @@
+# configuration for objects and agents, add scene as well
+task_name: TwoArmsHandoverBottles
+scene:
+  name: Table
+        
+  assets: 
+    - name: table
+      file_path: assets/scenes/table/table.glb
+      collision:
+        type: box
+        pos:
+          p: [0, 0, 0.45982145]
+          half_size: [3.0225, 1.51125, 0.45982145]
+      pos: 
+        ppos:
+          p: [-0.12, 0., -0.9196429]
+          q: [0., 0., 1.5707963268]
+        randp_scale: [0., 0., 0.]
+        randq_scale: [0., 0., 0., 0.]
+      scale: [4.375, 4.375, 1.75]
+  env:
+    floor_width: 100
+    
+objects:
+  - 
+    name: bottle1
+    file_path: release/perturbation_assets_v1/perturbation_assets_v1/distractors/001_bottle/visual/base13.glb
+    annotation_path: release/perturbation_assets_v1/perturbation_assets_v1/distractors/001_bottle/model_data13.json
+    material: 
+      type: sapien.pysapien.physx.PhysxMaterial
+      params:
+        static_friction: 0.3
+        dynamic_friction: 0.3
+        restitution: 0.
+    visual:
+      filename: release/perturbation_assets_v1/perturbation_assets_v1/distractors/001_bottle/visual/base13.glb
+      scale: [0.132, 0.132, 0.132]
+      
+
+    collision:
+      type: multiple_convex
+      filename: release/perturbation_assets_v1/perturbation_assets_v1/distractors/001_bottle/collision/base13.glb
+      scale: [0.132, 0.132, 0.132]
+    
+    pos:
+      ppos:
+        # p: [0.6, -0.2, 0.]
+        p: [0.4, -0.5, 0.]
+      # qpos: [0.65, 0.65, 0.27, 0.27]
+      # qpos: [0.65, 0.65, -0.27, -0.27]
+      # qpos: [0.65, 0.65, 0.27, 0.27]
+      qpos: [0.707, 0.0, 0.0, -0.707]
+      randp_scale: [-0.1, 0.1, 0.]
+      randq_scale: [0., 0., 0., 0.]
+    mass_params:
+      mass: 0.05  
+      cmass_local_pose: [0., 0.124, 0.]  
+      inertia: [0.01, 0.05, 0.01]  
+
+  - 
+    name: bottle2
+    file_path: release/perturbation_assets_v1/perturbation_assets_v1/distractors/114_bottle/visual/base4.glb
+    annotation_path: release/perturbation_assets_v1/perturbation_assets_v1/distractors/114_bottle/model_data4.json
+    material: 
+      type: sapien.pysapien.physx.PhysxMaterial
+      params:
+        static_friction: 0.3
+        dynamic_friction: 0.3
+        restitution: 0.
+    visual:
+      filename: release/perturbation_assets_v1/perturbation_assets_v1/distractors/114_bottle/visual/base4.glb
+      scale: [0.12, 0.12, 0.12]
+  
+
+    collision:
+      type: multiple_convex
+      filename: release/perturbation_assets_v1/perturbation_assets_v1/distractors/114_bottle/collision/base4.glb
+      scale: [0.12, 0.12, 0.12]
+
+    pos:
+      ppos:
+        # p: [0.6, -0.2, 0.]
+        p: [0.4, -0.3, 0.]
+      qpos: [0.707, 0.0, 0.0, -0.707]
+      
+      randp_scale: [-0.1, 0.1, 0.]
+      randq_scale: [0., 0., 0., 0.]
+    mass_params:
+      mass: 0.05  
+      cmass_local_pose: [0., 0.124, 0.]  
+      inertia: [0.01, 0.05, 0.01]  
+      # # 根据 model_data3_handover.json，center 在 y=0.939，考虑 scale=0.132
+      # # 实际重心偏移: 0.939 * 0.132 ≈ 0.124
+      # cmass_local_pose: [0., 0.124, 0.]  # 调整重心位置到瓶子的实际重心
+      # # 瓶子是细长形状，绕长轴的惯性应该更小
+      # inertia: [0.01, 0.05, 0.01]  # [Ix, Iy, Iz]，瓶子长轴沿y方向，Iy应该最大
+  
+  -
+    name: basket
+    file_path: release/perturbation_assets_v1/perturbation_assets_v1/distractors/110_basket/visual/base1.glb
+    annotation_path: release/perturbation_assets_v1/perturbation_assets_v1/distractors/110_basket/model_data1.json
+    material: 
+      type: sapien.pysapien.physx.PhysxMaterial
+      params:
+        static_friction: 0.5
+        dynamic_friction: 0.5
+        restitution: 0.
+    visual:
+      filename: release/perturbation_assets_v1/perturbation_assets_v1/distractors/110_basket/visual/base1.glb
+      scale: [0.12, 0.12, 0.12]
+      # scale: [0.15, 0.15, 0.15]
+    collision:
+      type: multiple_convex
+      filename: release/perturbation_assets_v1/perturbation_assets_v1/distractors/110_basket/collision/base1.glb
+      scale: [0.12, 0.12, 0.12]
+      # scale: [0.15, 0.15, 0.15]
+    body_type: static  # Set tray as static (immovable) object
+    pos:
+      ppos:
+        p: [0.55, 0.2, 0.]
+      # qpos: [0.706527, 0.706483, -0.0291356, -0.0291767]  # 原始朝向
+      # qpos: [0.707106781, 0.707106781, 0, 0]  # 绕X轴旋转90度
+      # qpos: [0.5, 0.5, 0.5, 0.5]  # 绕Z轴旋转90度（水平面内旋转）
+      qpos: [0.5, 0.5, 0.5, 0.5]
+      # randp_scale: [0.1, 0.1, 0.]
+      randq_scale: [0., 0., 0., 0.]
+
+
+
+agents:
+  - 
+    robot_uid: panda-0
+    pos:
+      ppos:
+        # p: [0., -0.75, 0.]
+        # q: [0., 0., 1.5707963268]
+        p: [-0.2, -0.4, 0.]
+        q: [0., 0., 0.]
+      qpos: [0., 0.3926990817, 0., -1.9634954085, 0., 2.3561944902, 0.7853981634, 0.04, 0.04]
+      # qpos: [0., 0., 0., -2.7, 0., 2.3561944902, 0.7853981634, 0.04, 0.04]
+      randp_scale: [0., 0., 0.]
+      randq_scale: [0., 0., 0., 0., 0., 0., 0., 0., 0.]
+  - 
+    robot_uid: panda-1
+    pos:
+      ppos:
+        # p: [0., 0.75, 0.]
+        # q: [0., 0., -1.5707963268]
+        p: [-0.2, 0.4, 0.]
+        q: [0., 0., 0.]
+      qpos: [0., 0.3926990817, 0., -1.9634954085, 0., 2.3561944902, 0.7853981634, 0.04, 0.04]
+      # qpos: [0., 0., 0., -2.7, 0., 2.3561944902, 0.7853981634, 0.04, 0.04]
+      randp_scale: [0., 0., 0.]
+      randq_scale: [0., 0., 0., 0., 0., 0., 0., 0., 0.]
+
+# agents:
+#   - 
+#     robot_uid: panda-0
+#     pos:
+#       ppos:
+#         # p: [0., -0.75, 0.]
+#         # q: [0., 0., 1.5707963268]
+#         p: [-0.2, -0.4, 0.]
+#         q: [0., 0., 0.]
+#       qpos: [0., 0.3926990817, 0., -1.9634954085, 0., 2.3561944902, 0.7853981634, 0.04, 0.04]
+#       randp_scale: [0., 0., 0.]
+#       randq_scale: [0., 0., 0., 0., 0., 0., 0., 0., 0.]
+#   - 
+#     robot_uid: panda-1
+#     pos:
+#       ppos:
+#         # p: [0., 0.75, 0.]
+#         # q: [0., 0., -1.5707963268]
+#         p: [-0.2, 0.4, 0.]
+#         q: [0., 0., 0.]
+#       qpos: [0., 0.3926990817, 0., -1.9634954085, 0., 2.3561944902, 0.7853981634, 0.04, 0.04]
+#       randp_scale: [0., 0., 0.]
+#       randq_scale: [0., 0., 0., 0., 0., 0., 0., 0., 0.]
+
+
+cameras:
+  sensor:
+    - 
+      uid: wrist_camera_agent0
+      pose:
+        type: pose
+        params: [[0.05, 0.0, -0.06], [0.0, 0.675590, 0.0, 0.737277]]
+      width: 224
+      height: 224
+      fov: 2.0943951024
+      near: 0.01
+      far: 10
+    - 
+      uid: wrist_camera_agent1
+      pose:
+        type: pose
+        params: [[0.05, 0.0, -0.06], [0.0, 0.675590, 0.0, 0.737277]]
+      width: 224
+      height: 224
+      fov: 2.0943951024
+      near: 0.01
+      far: 10
+    # - 
+    #   uid: head_camera_global
+    #   pose:
+    #     type: look_at
+    #     params: [[0.2, 0., 0.5], [0.3, 0, 0.3]]
+    #   width: 224
+    #   height: 224
+    #   fov: 2.0943951024
+    #   near: 0.1
+    #   far: 10
+    - 
+      uid: head_camera_global
+      pose:
+        type: look_at
+        # params: [[0.2, 0., 0.5], [0.3, 0, 0.3]]
+        params: [[0., 0.0, 0.5], [0.5, 0.0, 0.1]]
+      width: 224
+      height: 224
+      fov: 2.0943951024
+      near: 0.01
+      far: 10
+  human_render:
+    - 
+      uid: render_camera
+      pose:
+        type: look_at
+        params: [[0.6, 0.7, 0.6], [0.0, 0.0, 0.35]]
+      width: 1024
+      height: 1024
+      fov: 1
+      near: 0.01
+      far: 100
+      
+# 320x240
+
+# cameras:
+#   sensor:
+#     - 
+#       uid: wrist_camera_agent0
+#       pose:
+#         type: pose
+#         params: [[-0.5, 0.115, 0.4], [0, -0.235, 0.1]]
+#       width: 224
+#       height: 224
+#       fov: 1.5707963268
+#       near: 0.1
+#       far: 10
+#     - 
+#       uid: wrist_camera_agent1
+#       pose:
+#         type: pose
+#         params: [[0.5, -0.115, 0.4], [0, 0.235, 0.1]]
+#       width: 224
+#       height: 224
+#       fov: 1.5707963268
+#       near: 0.1
+#       far: 10
+#     - 
+#       uid: head_camera_global
+#       pose:
+#         type: pose
+#         params: [[-0.698591, 0.434148, 0.558983], [0.954989, 0.038711, 0.144233, -0.256309]]
+#       width: 224
+#       height: 224
+#       fov: 1.5707963268
+#       near: 0.1
+#       far: 10
+#   human_render:
+#     - 
+#       uid: render_camera
+#       pose:
+#         type: look_at
+#         params: [[0.6, 0.7, 0.6], [0.0, 0.0, 0.35]]
+#       width: 1024
+#       height: 1024
+#       fov: 1
+#       near: 0.01
+#       far: 100

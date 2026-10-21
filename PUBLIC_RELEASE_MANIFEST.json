@@ -1,0 +1,2194 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/zhangzaibin/future-robots-eval",
+  "files": [
+    {
+      "path": ".env.example",
+      "sha256": "eb159b6378e0f6939e2836e1b7e332b2284faa4e0fb7afbefe195e22094c3f4e"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug_report.md",
+      "sha256": "187ccb81be71e757cbc750dc7fc057f5afb147986886957e2b84ddd504bf06a7"
+    },
+    {
+      "path": ".github/pull_request_template.md",
+      "sha256": "da8af351ce26f9f85bdf4d6de7aeb3c35fa225ebcf8e8232541cb5dcf8faaf0d"
+    },
+    {
+      "path": ".github/workflows/checks.yml",
+      "sha256": "b3c423a35960c1f44848f235b5227bb97b90bb0d53e9c2b7ef02c22198e8cbad"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "97232e97498bf44ea026fbe904e9b4c19d547f9a0b187aa95f02bf588631e4b9"
+    },
+    {
+      "path": "CITATION.bib",
+      "sha256": "c05eaedcedcf1075a069e32b708bae73ebad0165c2e5c433f8cb1f926493f8dc"
+    },
+    {
+      "path": "CITATION.cff",
+      "sha256": "344035951002587eb5c7476cf3b88925dc429a031d290fc6b9cc1bd3e2b09e0b"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "sha256": "1f1842ef60fd9ca568e3e1a4385481032d2b2c883d7ca7b9a2fb9503c93a8b57"
+    },
+    {
+      "path": "DataAugmentation/README.md",
+      "sha256": "8442c7fe4d944878f56374aaf5441b57b5d07f243237f595d5dbe696eb3d89c5"
+    },
+    {
+      "path": "DataAugmentation/__init__.py",
+      "sha256": "05093fd2440d68f55eb06e8972d645a548196ba61a61f22d9ad3214f63902c34"
+    },
+    {
+      "path": "DataAugmentation/batch_config_example.json",
+      "sha256": "3264a9aade48898d356e2ab7c359a7810c7a198486aa233634fd9953668cfbed"
+    },
+    {
+      "path": "DataAugmentation/batch_config_example_new.json",
+      "sha256": "c04e675f05793e2b197abf0262227270dffc422a478b029dc88095b6e22fb642"
+    },
+    {
+      "path": "DataAugmentation/batch_config_example_new_new.json",
+      "sha256": "1ae0ccb8f8fef05647dab0afd52cfc513afd2d927b94dd8b72f7303be6a6f3b5"
+    },
+    {
+      "path": "DataAugmentation/batch_perturb_joints.py",
+      "sha256": "f2b8cb7dca64af909e4915483fe80f28b71917b3f46760af220b3c541099599a"
+    },
+    {
+      "path": "DataAugmentation/camext2qpos.py",
+      "sha256": "8a9e67e1605bef519a05318d9d714eec798313946534e4c42060f3c93b73faf9"
+    },
+    {
+      "path": "DataAugmentation/get_new_view_image.py",
+      "sha256": "50d172814ea5f0dd7af08d1a76b4703c5b90ac38091a2a3848505e2cce4c9792"
+    },
+    {
+      "path": "DataAugmentation/get_plan_traj.py",
+      "sha256": "f3dd9ff7224a60a37093f3a28f53d20673f857ad67728885dfd52adc5554cb67"
+    },
+    {
+      "path": "DataAugmentation/plan_new_pose.py",
+      "sha256": "91c302958186e65b70dbbcfb20fd4dcbc69eab169ef11c1f760f42ebe08d94a8"
+    },
+    {
+      "path": "DataAugmentation/qpos2camext.py",
+      "sha256": "32558269bd0b8afdb40886f7298bb40d8f83cc9953d33086b80999f2c14216b7"
+    },
+    {
+      "path": "DataAugmentation/segment_client.py",
+      "sha256": "b1969a5a1516ceae8decdcf878474a4c4bfcde0e685f1afdf7c289558533b9cd"
+    },
+    {
+      "path": "DataAugmentation/transform_client.py",
+      "sha256": "cded8f5d5f4604eccc5cecb6259df78d4eb16e9eeb37afb4f97bf217d98575b2"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "7644bfb2d2b3d10d2a95ec3aa41f0892bc3c80f44f2bd558e526d79c6fc46cea"
+    },
+    {
+      "path": "README-RF.md",
+      "sha256": "18c499f3fc166db47f985733927c396b7886e4278a2e35ab8acec891d1e632d7"
+    },
+    {
+      "path": "README.md",
+      "sha256": "2a459d2d8e13f8ebe16e809880600a8a7f4fbf008b661ced743471944c5432ad"
+    },
+    {
+      "path": "RoboFactory/configs/perturbation/visual_perturbation.yaml",
+      "sha256": "f9410b1b8c744b983d6771762f313627de593e8871512833e997b2dc3c56b6b3"
+    },
+    {
+      "path": "RoboFactory/configs/perturbation/visual_perturbation_handover_bottles.yaml",
+      "sha256": "cc8b981382e5a1732a8a3b4f55abb274fbb2ff18c79a0b9773b03596ac4b84da"
+    },
+    {
+      "path": "RoboFactory/configs/perturbation/visual_perturbation_place_burger_fries.yaml",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "RoboFactory/configs/perturbation/visual_perturbation_place_object_bowl_cabinet.yaml",
+      "sha256": "94f2bc2d66ad4fdbff93cf214df4e4dfce117c856cbaf6621cb5b016663ba53a"
+    },
+    {
+      "path": "RoboFactory/configs/perturbation/visual_perturbation_place_object_cabinet.yaml",
+      "sha256": "aef6bfd8b3044921a09272c7e96b522a761a1675d576210d338f8e4c79adfd03"
+    },
+    {
+      "path": "RoboFactory/configs/perturbation/visual_perturbation_pushcube.yaml",
+      "sha256": "f5bba0f3d96da1222657575c27f2f641521aeb6fb66f679e804a23415faf1e4c"
+    },
+    {
+      "path": "RoboFactory/configs/perturbation/visual_perturbation_stackcube.yaml",
+      "sha256": "3044287e21f49f931c5ba650cb823f341cfb52edc153846f92725b16c295bb34"
+    },
+    {
+      "path": "RoboFactory/configs/perturbation/visual_perturbation_three_arms_place_objects.yaml",
+      "sha256": "32d8a5bf57f01723450a2fa76a5fa2e7d7150d7a3fea9cf9df3b5afce847e1c3"
+    },
+    {
+      "path": "RoboFactory/configs/robocasa/camera_alignment.yaml",
+      "sha256": "e8f22d744e8af498c759c286262c04e06e5486e0ed81aa268d5524e134dc66dd"
+    },
+    {
+      "path": "RoboFactory/configs/robocasa/customized_layout.yaml",
+      "sha256": "439a2a1995b58f1be4ed8e940193781799b949f9def881cdca318ce666f3d523"
+    },
+    {
+      "path": "RoboFactory/configs/robocasa/lift_barrier.yaml",
+      "sha256": "3b9f5d992f9cbae5fcb65398a987afe463976394b14a0fb57a4a78c5a880305a"
+    },
+    {
+      "path": "RoboFactory/configs/robocasa/long_pipeline_delivery.yaml",
+      "sha256": "d0f066297afeaea60e8e4b6e91eed6bbda5c8df3f5bce959dee6eb6c66a7ae63"
+    },
+    {
+      "path": "RoboFactory/configs/robocasa/pass_shoe.yaml",
+      "sha256": "b8432d27c98da516d2d083481b8162380f5bd60a75c783a934cbd12f065c67ac"
+    },
+    {
+      "path": "RoboFactory/configs/robocasa/pick_meat.yaml",
+      "sha256": "ac9c2e9e7851ce7eef4bb4e51cd01d717dbfa745a6a116c62f30c2038ef933a4"
+    },
+    {
+      "path": "RoboFactory/configs/robocasa/place_food.yaml",
+      "sha256": "f9eb85eef2f0bd8d136cd475ea66cd8731e2ba6649b93224a65beba86d38c5bb"
+    },
+    {
+      "path": "RoboFactory/configs/robocasa/stack_cube.yaml",
+      "sha256": "9824497501d59e3bf84b8d990447b82c60e8576b56e46a1a18db79e84ad38512"
+    },
+    {
+      "path": "RoboFactory/configs/robocasa/strike_cube.yaml",
+      "sha256": "06340e956c44f567ea63e4792fc610eba6941108e96a49092dc8f2227821b7a5"
+    },
+    {
+      "path": "RoboFactory/configs/robocasa/take_photo.yaml",
+      "sha256": "2fe151761bc28cc181e693a0cf92e060d245b8c2c15ee4017208bdc795e145bf"
+    },
+    {
+      "path": "RoboFactory/configs/robocasa/three_robots_stack_cube.yaml",
+      "sha256": "95a6367fdceb1d90f8ac64716a4107a7740e4961c3cf01caf827f0f5bd0a5477"
+    },
+    {
+      "path": "RoboFactory/configs/robocasa/two_robots_stack_cube.yaml",
+      "sha256": "c73b32010742f08638646b3a3ef9c7b7589de440e9db73821362735d93b325e6"
+    },
+    {
+      "path": "RoboFactory/configs/table/camera_alignment.yaml",
+      "sha256": "1a14c2dba70c57c604db91adcb19df5b96b69e47db715510304dc44239e96baf"
+    },
+    {
+      "path": "RoboFactory/configs/table/four_arms_pass_shoes.yaml",
+      "sha256": "05b0b1924a4c2d9501b5e3b9e4191596eab35a45ee6b4abec8cfca213d9aeaaf"
+    },
+    {
+      "path": "RoboFactory/configs/table/four_arms_welding_cube.yaml",
+      "sha256": "97580da3d7b7f0880d7a19d80b5898f2336b4b484dbb9a48ed01943f52e6e6f8"
+    },
+    {
+      "path": "RoboFactory/configs/table/lift_barrier.yaml",
+      "sha256": "599e48929092acb4b9ff9bc41ec0f0e194f5fb368710f34306058ff96e4a4909"
+    },
+    {
+      "path": "RoboFactory/configs/table/long_pipeline_delivery.yaml",
+      "sha256": "6a39c9a8a3e8e1b506a546d2b5d58e82ff9b91e2b168014f67aef0b4c3260d07"
+    },
+    {
+      "path": "RoboFactory/configs/table/one_arm_place_object.yaml",
+      "sha256": "7d3c408d24a5560f71e6be49ac613eb9559d04c3c4b962718433e977584d852e"
+    },
+    {
+      "path": "RoboFactory/configs/table/pass_shoe.yaml",
+      "sha256": "7d1e5a27bf9d2e84bdda6093e9a90c4607b9098710b3754db5a7b17f7e8fd01b"
+    },
+    {
+      "path": "RoboFactory/configs/table/pick_meat.yaml",
+      "sha256": "093f0c2010de0a0a53852c6b89549aff1d2c0deebd9fc480e801837328544fdf"
+    },
+    {
+      "path": "RoboFactory/configs/table/pick_meat_in_basket.yaml",
+      "sha256": "4a9c09d1408d3449cd5dc662588dffbf5ecd0086f94b14e51747fbfe9bd2a942"
+    },
+    {
+      "path": "RoboFactory/configs/table/place_food.yaml",
+      "sha256": "6f2281d3e46965a13751e7119440809cc14c8d77e5931655c2eddeecab30435c"
+    },
+    {
+      "path": "RoboFactory/configs/table/stack_cube.yaml",
+      "sha256": "03ef26ab74f768f0a17263326c1b07b659c47240cacaad5c6ccdada8532d99bb"
+    },
+    {
+      "path": "RoboFactory/configs/table/strike_cube.yaml",
+      "sha256": "1a656c0503c11a63b9c3958fe1a6241c20bd5b29833e9b2fa4178a8bdf5e54b2"
+    },
+    {
+      "path": "RoboFactory/configs/table/take_photo.yaml",
+      "sha256": "68f56d9f2c73e4da6450b8d4faba54b27c4fdaa3e8fab4ae7f631a231718ea24"
+    },
+    {
+      "path": "RoboFactory/configs/table/three_arms_place_objects.yaml",
+      "sha256": "40f5e7f3f948801c73b3ae56cb5d30f03fc5e9b18435592527bae665d6d6a249"
+    },
+    {
+      "path": "RoboFactory/configs/table/three_arms_stack_cubes.yaml",
+      "sha256": "5d42a0b3a0a80f7ff0d6bcbb52eb2b37e8e24564230561ed47513cd3bcd0273a"
+    },
+    {
+      "path": "RoboFactory/configs/table/three_robots_stack_cube.yaml",
+      "sha256": "e07891a2d8eceeca52435349e807e701faa43405d92d68ea88843d1004a62ee3"
+    },
+    {
+      "path": "RoboFactory/configs/table/two_arms_click_object.yaml",
+      "sha256": "ff36790c05fd86976b04396bc97b1d1a85510bb33b4202a0c327a3a4b7cdd6ed"
+    },
+    {
+      "path": "RoboFactory/configs/table/two_arms_handover_bottles.yaml",
+      "sha256": "6b028012f3890e94d3a14334b8cbafdbf7b0c4e1def60bea24244de3639d8ee9"
+    },
+    {
+      "path": "RoboFactory/configs/table/two_arms_place_burger_fries.yaml",
+      "sha256": "84498ee525239f1ba47efa164c7f5f65e1681a6c98e51039b74f9251dddd27b9"
+    },
+    {
+      "path": "RoboFactory/configs/table/two_arms_place_can_basket.yaml",
+      "sha256": "73957fd4e93a5d925767c8733a531b8a20758c73f6cc2912414aa984e295dd27"
+    },
+    {
+      "path": "RoboFactory/configs/table/two_arms_place_cube_in_bowl.yaml",
+      "sha256": "76a78698e1e378f4420d4a13e1dffc299772600f9cc142c4a8c0c5b4a50f2d2c"
+    },
+    {
+      "path": "RoboFactory/configs/table/two_arms_place_dual_shoes.yaml",
+      "sha256": "69f4791c3e965eb4cfb729bb354a7d18c110d2b40a5bddee2d7190a0260e4936"
+    },
+    {
+      "path": "RoboFactory/configs/table/two_arms_place_object.yaml",
+      "sha256": "f35f39a0720511ab7130f67b882e5adaada44c8610a3a8f529dd55d28cbcfe5f"
+    },
+    {
+      "path": "RoboFactory/configs/table/two_arms_place_object_bowl_cabinet.yaml",
+      "sha256": "aec044812c182dd288e62367b41a42137a713d90201fcc32cc1c2f64a52d7bc2"
+    },
+    {
+      "path": "RoboFactory/configs/table/two_arms_place_object_cabinet.yaml",
+      "sha256": "c5f701f6757cd2b1cb264aa6a21c347541862d487cbaa9b3c958807c4bd7bdbe"
+    },
+    {
+      "path": "RoboFactory/configs/table/two_arms_push_cube.yaml",
+      "sha256": "7c9272a70ce2bd5d6bcf9c788515edb76dc5545fea599c2cca50a60fb66c9fec"
+    },
+    {
+      "path": "RoboFactory/configs/table/two_arms_stack_bowl.yaml",
+      "sha256": "55cb83b99a4ce012d2b02e62f9b60743505b4fadec8fac39eaf96be8cb5e8fe0"
+    },
+    {
+      "path": "RoboFactory/configs/table/two_arms_stack_bowl_phase.yaml",
+      "sha256": "7a96ff73bdccb66cfac5d3a89af7cbe0105831b0b785494bbf148d8e9fbdb7b8"
+    },
+    {
+      "path": "RoboFactory/configs/table/two_arms_stack_bowl_vlm.yaml",
+      "sha256": "8c25b413f809fd3a5996ad0791934284f161a6690366339b8fc1745e67d306db"
+    },
+    {
+      "path": "RoboFactory/configs/table/two_arms_stack_cube.yaml",
+      "sha256": "bcffb56bd21526c90fb3042641c65c2c45d36c391b016c772e6276bc235b1eee"
+    },
+    {
+      "path": "RoboFactory/configs/table/two_robots_stack_cube.yaml",
+      "sha256": "d0efa173f0b54ec30274904525cd87bf7bf8b2208f36a71672a89c20902fad16"
+    },
+    {
+      "path": "RoboFactory/eval_test.sh",
+      "sha256": "3ebb09edd84c5bec27e5057b03591de3dccffaee61b1466d375bc9c66961a8b8"
+    },
+    {
+      "path": "RoboFactory/planner/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "RoboFactory/planner/motionplanner.py",
+      "sha256": "5f2fe877eee38257a97fab354030b9c0dad996db44f7319b1860439198c8185e"
+    },
+    {
+      "path": "RoboFactory/planner/run.py",
+      "sha256": "6f8bbc6b0be8eb1e064936d981f5cbcec566d94bde39cf09dfa9f253f0f02ca7"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/__init__.py",
+      "sha256": "2107ec8639af87090534a860e032359d7f38aeb64ea5cc47cf9532d3da7ba13b"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/camera_alignment.py",
+      "sha256": "04e2131d0b4c1782b5ee8040a9b38c693e8b8e4055ba8d09c24830b9c646d511"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/four_arms_pass_shoes.py",
+      "sha256": "440a76a649f88ec8eded555c050e9576515a02ffa6ff29bc1728a1ef7958a63b"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/four_arms_welding_cube.py",
+      "sha256": "c76569f13eec40282a3ef9ad9f0fd32172252e8c3c2c7f6625e133419a133f56"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/handover_factory.py",
+      "sha256": "9f686e583e6db25fd6cb451d5b4ff9d492bc08574e6c74e382b0514ec8767469"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/lift_barrier.py",
+      "sha256": "fbb172236a2aa7ea5e4948b719f71f00d40b95f7efd3f179554c766c0fe45437"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/long_pipeline_delivery.py",
+      "sha256": "3c6813481ec6ec23acd654205c0038eba5f2cd35af7e3434e0d03818a51ad954"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/one_arm_place_object.py",
+      "sha256": "eca6fbb3e50d61a53b5c7f4ebf5ab2ddba87a3ecf80e2d751b39e3dae2476448"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/pass_shoe.py",
+      "sha256": "1e1db4a2d16806aa63cc468c8249b49905e55094fa60d03b8fe9e43d357e5335"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/pick_meat.py",
+      "sha256": "3000f175d10f1e90dafacbd1dfd71a6891e9368d6f730bd12904cb83e94314d7"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/pick_meat_in_basket.py",
+      "sha256": "fb6be856f25da5bf5b9ca6e6bb1f62c8cff132af16228edffb992c5797b010f2"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/place_factory.py",
+      "sha256": "fa9cb673967831a1eb5197b60dc291c3ea3746ab2d1e634d216a58b8aeeb1583"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/place_food.py",
+      "sha256": "bd4833b92708b7a4b17b3a1c2f85eedab3380a91c7cb416d42870cdd6d1bd79b"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/stack_cube.py",
+      "sha256": "296d8b116c360e3823b5002d995bf82732d41f4ddbafd46d8f4e49486d1aa144"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/strike_cube.py",
+      "sha256": "746bd5cd533ecab8e2a55eccbe95e0e32ea66723140b7cbda45712f3b8e950e8"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/take_photo.py",
+      "sha256": "accbab8c2881f91f96fa10a5040eb111106627a47cf682beee30569c18ad2de1"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/three_arms_place_objects.py",
+      "sha256": "c48c70dd8f054c08f77ee8e250001e44efb5800c0de35f1c08c272520489430d"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/three_arms_stack_cubes.py",
+      "sha256": "6b6e3ccb11ad36a84a2cba78cbb92a3e19445569d730e139fe2484a6a3b791b8"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/three_robots_stack_cube.py",
+      "sha256": "101684f0a6933c579d375a6faa3376bf5270a11f7c164e7e1a39fd2a962ab1ea"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/two_arms_click_object.py",
+      "sha256": "01dfa1c55f737eff7e369f8029189023f54ec1c56a6efaa99f13e4975be6dce5"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/two_arms_handover_bottles.py",
+      "sha256": "90b14cf3d5ccdb836ec763f68188cb309c7b670cc29dfabd90028202e1590cc7"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/two_arms_place_burger_fries.py",
+      "sha256": "5a3df71a048541dbfc351490635b51f4909a066e7699d8965b7f081696215eff"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/two_arms_place_can_basket.py",
+      "sha256": "155f4459eb4c42ff701dbc5a8c77421d4a2a8a27fbc2cfbf36f01d1a77209edf"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/two_arms_place_dual_shoes.py",
+      "sha256": "b7dc9b8e1ca5620ab6f88bb30d7cbf6ed9a0d22ca4422c7c0c7e738d1c2bb644"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/two_arms_place_food.py",
+      "sha256": "6d722aae5e9d2912905aa8279d0c18a6523633804cc00c1a5e823b1af648ac19"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/two_arms_place_object.py",
+      "sha256": "eb878e5d0355b924225e7a090cb883494bd6bf1463538f0e9c5f5209102e886f"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/two_arms_place_object_cabinet.py",
+      "sha256": "eca2f72be0594f20c3ff03817e280e80a3ab70f21bd339e4302cab84c851c3ee"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/two_arms_push_cube.py",
+      "sha256": "b2a671a1eaf2c7e1a25d5aafec36ed3da725a84e739609512e9937d82291b6fc"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/two_arms_stack_bowl.py",
+      "sha256": "696cf18da6754af4f3016434311bf57a350a843653201106498342a3774d9beb"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/two_arms_stack_cube.py",
+      "sha256": "45401ebbaf151c4d8c67a9b844a81e5df3cceb719949df216f31cb8ddd63bc1d"
+    },
+    {
+      "path": "RoboFactory/planner/solutions/two_robots_stack_cube.py",
+      "sha256": "8edb7ecc4526fbbf67a244bf6cdaf3ea328a4d29e21a773081ad17a6f77d2c21"
+    },
+    {
+      "path": "RoboFactory/planner/utils.py",
+      "sha256": "56c12df47dd825d486757781811bd41f5c81e4043a95727e97cb8df55e1cef9b"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/.gitignore",
+      "sha256": "12d2c38bae8db9f85f1b9c476bae16ede196d39dd1df7e1c01fc8096faa6d195"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/client_dp.py",
+      "sha256": "d0f32e866ee4181b53cd6eb4a9f371972b57242e30df45f1bf5213dc09db2402"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/common/checkpoint_util.py",
+      "sha256": "2640d4ceda252ee926b13b9ce6c828e5df2e36a9d36637a6a80a7bbe11dab543"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/common/cv2_util.py",
+      "sha256": "2909ec0adabeecc0bebbe699ce7a469cede9d1867019d51069339ff4def02afa"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/common/env_util.py",
+      "sha256": "0902dca6982fc2ae76a9eddf30c1228498b2aa61913a0018b384bf15373991de"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/common/json_logger.py",
+      "sha256": "0678a15375ec22d85bf2deb499c1c3369aae885f35e214a884bf6bac7655d9ff"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/common/nested_dict_util.py",
+      "sha256": "d6e1d5c87712ce3888ba487755888ebc9837efef93a1f85405b3c20c71b94d9d"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/common/normalize_util.py",
+      "sha256": "d5f3e9da250a22909d0b52debc33bb1468713ca46f85b044e8a0e8e9112d4e5e"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/common/pose_trajectory_interpolator.py",
+      "sha256": "34662c3e495ef6a22f47055784b7a2c7dc37b11c8ecbd393244fb69778cbce23"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/common/precise_sleep.py",
+      "sha256": "54c742f51b4e89d1df9577324678a4404c81fcf26378e3f6c75e8034d09a142e"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/common/pymunk_override.py",
+      "sha256": "85e7c54b5e9630a9f7e675250ee514ae9b2249d11654ec0811d8e4bcf413fe39"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/common/pymunk_util.py",
+      "sha256": "12d387b3ec918e6158b1e610c0d913d189b7be545abeb4007499bd8ff0e0f6eb"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/common/pytorch_util.py",
+      "sha256": "96ce50e191b4c837532529040af65d2b9a1f433f33a5187f8cf256b62d84b6b4"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/common/replay_buffer.py",
+      "sha256": "a31c300f5e67227938c2cd322d533176597566135aeb10913b27f52f75616a9c"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/common/robomimic_config_util.py",
+      "sha256": "e782f9ba46ea433a77dfe95525a879bcf3033969f07ba9f776268c247e8a8a30"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/common/robomimic_util.py",
+      "sha256": "8f7a4c547ca3644fc12a4b66596f782cd06954c7fac395cc542369968edc5215"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/common/sampler.py",
+      "sha256": "d35324636fb9f6d670ccf3d3419406e3526cbf9bc6ab68ce0103e362750e78e8"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/common/timestamp_accumulator.py",
+      "sha256": "16f32c9e626debca2c495e859152e6fee4166732c5cb8b8923f4399854fcb6e9"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/config/pairwise_dp.yaml",
+      "sha256": "34c228d16a3c40f6854172489728aeb7ed7cac0184b2e0c906322945870021b4"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/config/robot_dp.yaml",
+      "sha256": "73177d78df7e93f389ef115c5dcfbf08f7b93dfa86e5db104d07aa7eeb5b4401"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/config/robot_dual_cam_dp.yaml",
+      "sha256": "c6b8c13fdeeaaedd748d906131c81fa7ec932eb61d58bdda539c586ec124407a"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/config/task/default_task.yaml",
+      "sha256": "43c1d60026f4a37a584c323b471450d7d2eab4da7d50f318ef4bb6e94729c1b8"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/config/task/dual_cam_task.yaml",
+      "sha256": "84c34a67aaf36e8571ab106856ed69c4461ee1c911b477b749ba83f578f615eb"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/config/task/pairwise_task.yaml",
+      "sha256": "f8776d5d5c6b6d4aca30396b17ccb13e7d44c6bcfebbc38fcde5cab707b0e761"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/dataset/base_dataset.py",
+      "sha256": "d2ad33b5af14a3a3ad9995701dd44790170c84b394a7bad899d607d809cbe8e3"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/dataset/pairwise_h5_dataset.py",
+      "sha256": "b2a8a37a78a1f8a29d03045582af64861288f523f9c4359880087adb72058f66"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/dataset/robot_image_dataset.py",
+      "sha256": "c182137751e7821f449ff9d5576173b8cfd7ea6ef2098910a9ede3ef9065e312"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/env_runner/dp_runner.py",
+      "sha256": "1831dca14ae7957047d9d8fffb568d0c95442961d9d6a7bdf790962db52b2442"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/bet/action_ae/__init__.py",
+      "sha256": "c72a7329ee76bf03bd6bb08211b55cfe21b60e5239971770d9d3088b5ad6fb6b"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/bet/action_ae/discretizers/k_means.py",
+      "sha256": "4520824e23955af326d9057589f8acaba80d7df101b84ec7ab8f19def68fa573"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/bet/latent_generators/latent_generator.py",
+      "sha256": "2351b856539d40e7475eaeccc9bc669e4aaf9cfb229945f2bcdba3e222887c7a"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/bet/latent_generators/mingpt.py",
+      "sha256": "5c4a067ab584d66b9196676a4493d18c1629ad2ad02f9a90fabaa37b52fdadcb"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/bet/latent_generators/transformer.py",
+      "sha256": "203e809f64ae6f8c4f04d80e5da0ee99e8f8fbc5beb4652be41d0ab616af6c5b"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/bet/libraries/loss_fn.py",
+      "sha256": "8f977024753c9b0889b6522e76cae91dc001cdf2f7f42a57c60e40d236767bf1"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/bet/libraries/mingpt/LICENSE",
+      "sha256": "1868a048bfe0f991cf82ee0f8c357b50887bc32549a47762dbca96e87ebb9483"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/bet/libraries/mingpt/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/bet/libraries/mingpt/model.py",
+      "sha256": "de2c6eb23ce7d8f61382e0f11be879520f39cfaf478317a649b3e763156c12aa"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/bet/libraries/mingpt/trainer.py",
+      "sha256": "cffe73b481b3e7e8500c6fc869e6188c3c30ed05c4eb35a452685bf01875f1a9"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/bet/libraries/mingpt/utils.py",
+      "sha256": "066ab2317a21c4560de0e731f8ae3d584417bec8bddf53e094e2b9395caa2705"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/bet/utils.py",
+      "sha256": "f4f23a13ed5079304cd834afbb89e42385d6061c4178806840947434c12a92c3"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/common/dict_of_tensor_mixin.py",
+      "sha256": "158b63a244bcfb9aa377206730f5f59778c6aeb9138ff55c76d2c28ec46952d1"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/common/lr_scheduler.py",
+      "sha256": "feb9453856bfd1ee10b1faba6c64814e071c5e70174398daf3bfcd8d430c80db"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/common/module_attr_mixin.py",
+      "sha256": "658dececa20f7628960fc1a8db89e4be3693e1bba47f63d1ff8a4faa2d481e45"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/common/normalizer.py",
+      "sha256": "e07310f7c2b7aba0d4d1dae4774b77f674444df1ff75273e30aa2997b2ae2716"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/common/rotation_transformer.py",
+      "sha256": "dcb5490f4c7e19423fb7af4f71afb6de9e0f807883e988187928bc3dd4f45e97"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/common/shape_util.py",
+      "sha256": "0143d9c5cddb7f47f9db017d74aa415c39e19148e5f960dd7129dd172ebbcbca"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/common/tensor_util.py",
+      "sha256": "751b042aa5390ddf1f5b6220a465dfa20dbb9304e3c057f04512d6ee55f4e1b1"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/diffusion/conditional_unet1d.py",
+      "sha256": "8a95014f8aa52ade086f967c9018a66bf0c68f2133969c8f7a8522da01b472ac"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/diffusion/conv1d_components.py",
+      "sha256": "ea2aa10e297cf253bc1a1919ba47fe6ae32049b5eaaab292ed9cc145d8d2adc0"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/diffusion/ema_model.py",
+      "sha256": "f683be124722abe0703e2cf003566ab2d446783383cdcd5202063e20148ae467"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/diffusion/mask_generator.py",
+      "sha256": "23dba4c112ed57e41d530612c79d9841c9b3c5bd3d6790863d1739190a9ab7b0"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/diffusion/positional_embedding.py",
+      "sha256": "2266c75ecc9c9ac8ca126839d39a7bafbdd7af8800d6de903f66815e64cc366c"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/diffusion/transformer_for_diffusion.py",
+      "sha256": "c4cfd71a2f1b4f5181c7ccc391d71f19ebce74c698fc12725bb88317b6f8fd8f"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/vision/crop_randomizer.py",
+      "sha256": "85787b6becd337352c2a1795f1e77be977c073134f91c3d0924b9d0e36c92978"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/vision/model_getter.py",
+      "sha256": "9ea2628246d6e11ac8b468f2114805b4b74281c34846dd9e9adc0e232c382e85"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/model/vision/multi_image_obs_encoder.py",
+      "sha256": "1332571507f0fdcaddfd4a2db262fb3fb437f00c8219accfc1bf0223a1c11f22"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/policy/base_image_policy.py",
+      "sha256": "32fd3fe35e2827f4472e195381e642dd8d78f4f0038f4f9625e0128c76e1aecd"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/policy/diffusion_unet_image_policy.py",
+      "sha256": "5ef24234fcbb69e3e461379b29cb99f92bf3c18a0d482e580048894cac703bbe"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/shared_memory/shared_memory_queue.py",
+      "sha256": "4290a55e06e2ca87affdb75e72c9651110a3325d0c73ecc11c23a935041330be"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/shared_memory/shared_memory_ring_buffer.py",
+      "sha256": "97c2493809ab79a2aed0d6315feacd3b9d78fd5d28ae898dfd1b2f9421a298d6"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/shared_memory/shared_memory_util.py",
+      "sha256": "7fc014b861d998cc08baca835860d1309497fcf51a8e8b75ea4ed414d414cc44"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/shared_memory/shared_ndarray.py",
+      "sha256": "aa26e1ecd548b16d9e26eab87327050375dc4cce3c88d6fa1fe5b849c7cd001f"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/workspace/base_workspace.py",
+      "sha256": "dd54151027a7ba1003614f09357751a697cde5458162b0570661cdec36d81400"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/diffusion_policy/workspace/robotworkspace.py",
+      "sha256": "da96dc1fa6209bccf2fd994b211724d8070109cba3a23916f03e31542125b407"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/eval.sh",
+      "sha256": "890afd90ce3248fadba3da929615a63c09ae4dc9278f9c305d290b0dc2bced55"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/eval_dp.py",
+      "sha256": "8d46914da978b3f404ccd802364c04d93acb704b02768555b167e6e8f17c5628"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/eval_multi.sh",
+      "sha256": "f4bfc0b4878e3c2ccc8b131f79aa8e86fade225a9b54651c2187d983e3f8814f"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/eval_multi_dp.py",
+      "sha256": "aa03517fd6e121085eef4dc38bbd95a3b359871100634e4537ccadd01cca4b35"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/eval_multi_dp_perturb.py",
+      "sha256": "e1589f84b57da9cd81d6021cbeaa3f25ed87df8e1085e739565e208dc1e0d0d4"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/eval_test.sh",
+      "sha256": "3b827e0f9d45e24ed922adc43aefe3396b7523811c9f5718f0955f80a5b539c2"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/pyproject.toml",
+      "sha256": "f53c729fd9710575f6e9953baf786ee0ce723fa4e8d3d9d6988a32bc4a1b810f"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/server_dp.py",
+      "sha256": "0811aa842ba58274b1c88d61083f09a733beb33eaa64b46f492ada1c7be98017"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/train.py",
+      "sha256": "05a1a9d1959020acc395aa88e5164cb00345b9f61717432405971d134ab8cf3b"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/train.sh",
+      "sha256": "cec0f6a72427622449fd020b81cea3e21615df2130c1e07c3ae054f52bc03522"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/train_dual_cam_from_pretrained.sh",
+      "sha256": "57ccd809da7eb883a0b23d8e5a20879db732522892c939deb6cef8d64fd8ae75"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/train_pairwise.sh",
+      "sha256": "7c91ee1d253581765e7d75963c432014fe7f43d6be204fbf2f4658bc4a86f1ac"
+    },
+    {
+      "path": "RoboFactory/policy/Diffusion-Policy/visualize_augmentation.py",
+      "sha256": "5c0e5286c56fcb2af83d07717f938c1ad184bbf7c2e45e48e62336694ae3da42"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/client.py",
+      "sha256": "94b4147158a668f6810f36a8a6e14199e0071104468f4b6f34c487e79d17c8e9"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/convert.py",
+      "sha256": "9695f7cb76cab34c72df97192ce62bc5c6858c7ac665a1bd86bb666a244459d2"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/common/checkpoint_util.py",
+      "sha256": "2640d4ceda252ee926b13b9ce6c828e5df2e36a9d36637a6a80a7bbe11dab543"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/common/cv2_util.py",
+      "sha256": "2909ec0adabeecc0bebbe699ce7a469cede9d1867019d51069339ff4def02afa"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/common/env_util.py",
+      "sha256": "0902dca6982fc2ae76a9eddf30c1228498b2aa61913a0018b384bf15373991de"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/common/json_logger.py",
+      "sha256": "0678a15375ec22d85bf2deb499c1c3369aae885f35e214a884bf6bac7655d9ff"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/common/nested_dict_util.py",
+      "sha256": "d6e1d5c87712ce3888ba487755888ebc9837efef93a1f85405b3c20c71b94d9d"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/common/normalize_util.py",
+      "sha256": "d5f3e9da250a22909d0b52debc33bb1468713ca46f85b044e8a0e8e9112d4e5e"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/common/pose_trajectory_interpolator.py",
+      "sha256": "34662c3e495ef6a22f47055784b7a2c7dc37b11c8ecbd393244fb69778cbce23"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/common/precise_sleep.py",
+      "sha256": "54c742f51b4e89d1df9577324678a4404c81fcf26378e3f6c75e8034d09a142e"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/common/pymunk_override.py",
+      "sha256": "85e7c54b5e9630a9f7e675250ee514ae9b2249d11654ec0811d8e4bcf413fe39"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/common/pymunk_util.py",
+      "sha256": "12d387b3ec918e6158b1e610c0d913d189b7be545abeb4007499bd8ff0e0f6eb"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/common/pytorch_util.py",
+      "sha256": "96ce50e191b4c837532529040af65d2b9a1f433f33a5187f8cf256b62d84b6b4"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/common/replay_buffer.py",
+      "sha256": "5343d1f4aa479b76f4571536f9fed07f632bc386618bdd1e8773f9a5698b5e96"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/common/robomimic_config_util.py",
+      "sha256": "e782f9ba46ea433a77dfe95525a879bcf3033969f07ba9f776268c247e8a8a30"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/common/robomimic_util.py",
+      "sha256": "8f7a4c547ca3644fc12a4b66596f782cd06954c7fac395cc542369968edc5215"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/common/sampler.py",
+      "sha256": "d35324636fb9f6d670ccf3d3419406e3526cbf9bc6ab68ce0103e362750e78e8"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/common/timestamp_accumulator.py",
+      "sha256": "16f32c9e626debca2c495e859152e6fee4166732c5cb8b8923f4399854fcb6e9"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/config/robot_dp.yaml",
+      "sha256": "7427ced4a237c3b527443a22eafee00d5e171301a4bc789c1ed31f925f9c49b5"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/config/task/default_task.yaml",
+      "sha256": "13e02c68cd2d74b9f911fca029a0957dce3ed651f39f5f4c5225a2fe4e2de733"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/dataset/base_dataset.py",
+      "sha256": "d2ad33b5af14a3a3ad9995701dd44790170c84b394a7bad899d607d809cbe8e3"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/dataset/robot_image_dataset.py",
+      "sha256": "3bb8b8c8c67f2a29fef3a7732aac1d3363b7d25a5d0e9c6ad88865801972e487"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/env_runner/dp_runner.py",
+      "sha256": "7f92b1713697172b0359de3b5f27dc30b573ebae29eb03a7ca1d1099fcd118f4"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/bet/action_ae/__init__.py",
+      "sha256": "c72a7329ee76bf03bd6bb08211b55cfe21b60e5239971770d9d3088b5ad6fb6b"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/bet/action_ae/discretizers/k_means.py",
+      "sha256": "4520824e23955af326d9057589f8acaba80d7df101b84ec7ab8f19def68fa573"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/bet/latent_generators/latent_generator.py",
+      "sha256": "2351b856539d40e7475eaeccc9bc669e4aaf9cfb229945f2bcdba3e222887c7a"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/bet/latent_generators/mingpt.py",
+      "sha256": "5c4a067ab584d66b9196676a4493d18c1629ad2ad02f9a90fabaa37b52fdadcb"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/bet/latent_generators/transformer.py",
+      "sha256": "203e809f64ae6f8c4f04d80e5da0ee99e8f8fbc5beb4652be41d0ab616af6c5b"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/bet/libraries/loss_fn.py",
+      "sha256": "8f977024753c9b0889b6522e76cae91dc001cdf2f7f42a57c60e40d236767bf1"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/bet/libraries/mingpt/LICENSE",
+      "sha256": "1868a048bfe0f991cf82ee0f8c357b50887bc32549a47762dbca96e87ebb9483"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/bet/libraries/mingpt/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/bet/libraries/mingpt/model.py",
+      "sha256": "de2c6eb23ce7d8f61382e0f11be879520f39cfaf478317a649b3e763156c12aa"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/bet/libraries/mingpt/trainer.py",
+      "sha256": "cffe73b481b3e7e8500c6fc869e6188c3c30ed05c4eb35a452685bf01875f1a9"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/bet/libraries/mingpt/utils.py",
+      "sha256": "066ab2317a21c4560de0e731f8ae3d584417bec8bddf53e094e2b9395caa2705"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/bet/utils.py",
+      "sha256": "f4f23a13ed5079304cd834afbb89e42385d6061c4178806840947434c12a92c3"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/common/dict_of_tensor_mixin.py",
+      "sha256": "158b63a244bcfb9aa377206730f5f59778c6aeb9138ff55c76d2c28ec46952d1"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/common/lr_scheduler.py",
+      "sha256": "feb9453856bfd1ee10b1faba6c64814e071c5e70174398daf3bfcd8d430c80db"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/common/module_attr_mixin.py",
+      "sha256": "658dececa20f7628960fc1a8db89e4be3693e1bba47f63d1ff8a4faa2d481e45"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/common/normalizer.py",
+      "sha256": "e07310f7c2b7aba0d4d1dae4774b77f674444df1ff75273e30aa2997b2ae2716"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/common/rotation_transformer.py",
+      "sha256": "dcb5490f4c7e19423fb7af4f71afb6de9e0f807883e988187928bc3dd4f45e97"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/common/shape_util.py",
+      "sha256": "0143d9c5cddb7f47f9db017d74aa415c39e19148e5f960dd7129dd172ebbcbca"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/common/tensor_util.py",
+      "sha256": "751b042aa5390ddf1f5b6220a465dfa20dbb9304e3c057f04512d6ee55f4e1b1"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/diffusion/conditional_unet1d.py",
+      "sha256": "8a95014f8aa52ade086f967c9018a66bf0c68f2133969c8f7a8522da01b472ac"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/diffusion/conv1d_components.py",
+      "sha256": "ea2aa10e297cf253bc1a1919ba47fe6ae32049b5eaaab292ed9cc145d8d2adc0"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/diffusion/ema_model.py",
+      "sha256": "f683be124722abe0703e2cf003566ab2d446783383cdcd5202063e20148ae467"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/diffusion/mask_generator.py",
+      "sha256": "23dba4c112ed57e41d530612c79d9841c9b3c5bd3d6790863d1739190a9ab7b0"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/diffusion/positional_embedding.py",
+      "sha256": "2266c75ecc9c9ac8ca126839d39a7bafbdd7af8800d6de903f66815e64cc366c"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/diffusion/transformer_for_diffusion.py",
+      "sha256": "c4cfd71a2f1b4f5181c7ccc391d71f19ebce74c698fc12725bb88317b6f8fd8f"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/vision/crop_randomizer.py",
+      "sha256": "85787b6becd337352c2a1795f1e77be977c073134f91c3d0924b9d0e36c92978"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/vision/model_getter.py",
+      "sha256": "9ea2628246d6e11ac8b468f2114805b4b74281c34846dd9e9adc0e232c382e85"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/model/vision/multi_image_obs_encoder.py",
+      "sha256": "1332571507f0fdcaddfd4a2db262fb3fb437f00c8219accfc1bf0223a1c11f22"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/policy/base_image_policy.py",
+      "sha256": "32fd3fe35e2827f4472e195381e642dd8d78f4f0038f4f9625e0128c76e1aecd"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/policy/diffusion_unet_image_policy.py",
+      "sha256": "da9719180a20cad238476a57d3f9970c5e39c28935092d5f1b044d8543c721f8"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/shared_memory/shared_memory_queue.py",
+      "sha256": "4290a55e06e2ca87affdb75e72c9651110a3325d0c73ecc11c23a935041330be"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/shared_memory/shared_memory_ring_buffer.py",
+      "sha256": "97c2493809ab79a2aed0d6315feacd3b9d78fd5d28ae898dfd1b2f9421a298d6"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/shared_memory/shared_memory_util.py",
+      "sha256": "7fc014b861d998cc08baca835860d1309497fcf51a8e8b75ea4ed414d414cc44"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/shared_memory/shared_ndarray.py",
+      "sha256": "aa26e1ecd548b16d9e26eab87327050375dc4cce3c88d6fa1fe5b849c7cd001f"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/workspace/base_workspace.py",
+      "sha256": "dd54151027a7ba1003614f09357751a697cde5458162b0570661cdec36d81400"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/diffusion_policy/workspace/robotworkspace.py",
+      "sha256": "85273f09e688b871072e07ad395c081d674afc2b2e18761044e62035c7517957"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval/eval_dual_passshoe_atom.sh",
+      "sha256": "5bb3ecdc071fbc8b8b8ef48c12f1a3b8eed6022abc9dbad53e0895386d3063f2"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval/eval_dual_passshoe_baseline.sh",
+      "sha256": "dd70a12c4964e9fafedb07a22923f9a166c183ce3133697e27b443b59463647b"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval/eval_place_factory.sh",
+      "sha256": "6a48411dea1545204c92f64b26e6307e31658d0b64a7b78d7bf7e896aa4b4541"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval/eval_place_meat.sh",
+      "sha256": "564004592b028f014d8df8c03d9d89402e1ad898e3c8e893662a729001e3c4d7"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval/eval_quad_longpipeine_baseline.sh",
+      "sha256": "c0383ea0057027a50d1f7aa346e8a707224be3c315f0626b97541b9ed308e228"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval/eval_quad_longpipeline_atom.sh",
+      "sha256": "b7b8c0fb018615cba828534641d64e0d79768793822c2a7ba9f4843c23038879"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval/eval_quad_takephoto_atom.sh",
+      "sha256": "be7b3278b99db3d65ba26a7312b7abd4f41607eff25bac299f057fbc928eb3d7"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval/eval_quad_takephoto_baseline.sh",
+      "sha256": "a360489dfd8e9b4e093cc2f8a7371d67d8f59c240312da11e3bc7ca7c22cf09c"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval/eval_triple_stackcube_atom.sh",
+      "sha256": "c11c52f06c9406e8a004d213d05b577451268387fa512bac08efb7c04a47e6a5"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval/eval_triple_stackcube_atom_gbr.sh",
+      "sha256": "6b5accb0eac9fb91858a6f8b2d73cba0186e6abbe770d8660482a9d6a9bfe6bb"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval/eval_triple_stackcube_atom_human.sh",
+      "sha256": "ffd77949b7b929ac5d4c22a30cd69f130749610aedf722b66bf9f950b19428cc"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval/eval_triple_stackcube_atom_vllm.sh",
+      "sha256": "4a19d66f74310378f3e03e237f87f0542337eeea6aeeddc47e68962a6498fa33"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval/eval_triple_stackcube_baseline.sh",
+      "sha256": "abb60f969cfe7b49e5b93b8b8035c4cb413fde0005c458c4e688898c6cbd62f8"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval.sh",
+      "sha256": "fad004500a9e0c7f5438f030507906d0e30de0371dabbc37962b5cc58c60a24d"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval_fourrobots_longpipeline_atom.py",
+      "sha256": "cadad5b2a3c9c6694ac4bacbc0e0e0be4f8c71d6cb89f0d2a40f89d7c4342a10"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval_fourrobots_longpipeline_baseline.py",
+      "sha256": "6230bc39cecff53b450fa684830e003597997bdc1816753608491daa8d6be141"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval_fourrobots_takephoto_atom.py",
+      "sha256": "a0a2ef7ff9e7854e47ff14c5383b8ea3162bf60bb54556c68a287f1cca8fc945"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval_fourrobots_takephoto_baseline.py",
+      "sha256": "85ca2d2f5e997eb24ecbdbc90deace1c53900b96a4b85df78cccbda8e38c782d"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval_multi_dp.py",
+      "sha256": "5276be38c8cdd260a2173d2c1197b3110d742d12c6b5ebde911e99cbcf25018c"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval_place_factory.py",
+      "sha256": "23e39ec239b8e180353a7010384afabb51101c0393138a097de9684e336cbb98"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval_place_meat_in_basket.py",
+      "sha256": "6b0a8455505759612d0d0b9ef331ecede891d5fede0a06841b16eb9ec9e3e0a0"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval_threerobots_stackcubes_atom.py",
+      "sha256": "6c4e6a677250d4e961e4117ab4518d9e93506f9a1df49752364291a954aaee9a"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval_threerobots_stackcubes_atom_gbr.py",
+      "sha256": "618f24b2483ccfebc80b6c4e372353a3ea0cbe0099d9683ac65472b410fbf312"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval_threerobots_stackcubes_atom_human.py",
+      "sha256": "c3797b784300687007d9c15f4e5da15633d3e6d437060f9d4feb750e5bd0ce3a"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval_threerobots_stackcubes_atom_human_neworder.py",
+      "sha256": "d09abd8f82f619a188c60d25689146dab08aa63b99aa09508e1b6f859e35ab7f"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval_threerobots_stackcubes_atom_vllm.py",
+      "sha256": "8a7181456f0b8bc790b0356da1bb36f422790e027cd61ff3095a696330cf980c"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval_threerobots_stackcubes_baseline.py",
+      "sha256": "80ab84cf25bcd26a5c551c8e6241855c75794184e73a0c896e624f29e696fd0f"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval_tworobots_passshoes_atom.py",
+      "sha256": "9d6b1afac5f72f2e02e395a5aacd5d991beed8671b8bdbb821e9d08a678981da"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/eval_tworobots_passshoes_baseline.py",
+      "sha256": "828eb5fcd931f21c1af63d261516cef7a06448e67ef088ffd79c381478f16106"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/gpt_client.py",
+      "sha256": "054c661d5a244537609859ddf126a91977a219eb289199175d455381e65be946"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/image_tools.py",
+      "sha256": "5b6a1049bc112fd477fb972a83cb666a06f75f8746f2de494ca049825869ddfa"
+    },
+    {
+      "path": "RoboFactory/policy/Pi0/set_phase_stackcube.py",
+      "sha256": "266d7aaceba20fe84d75b4e74e555d92fadf5343084c46ea46bf3287ff317c4e"
+    },
+    {
+      "path": "RoboFactory/replay_trajectory_wrapper.py",
+      "sha256": "87a622e9ec849b846fff42cc1de706d8581bebce5bd3216519b0bc601561ae6a"
+    },
+    {
+      "path": "RoboFactory/requirements.txt",
+      "sha256": "82febebb54923ead719c694ab6c96686bbddb05e8e70eacc51a2a590f0398ebe"
+    },
+    {
+      "path": "RoboFactory/resized_image.jpg",
+      "sha256": "5e0f0b3da9400c453363c7d0c113cef1901e6a2f5962f271eb2ac88910c71ddb"
+    },
+    {
+      "path": "RoboFactory/run.sh",
+      "sha256": "1433f18bc28523faa8db1612b5c8a9c909b6470f7ada00ce49983cd2c2017590"
+    },
+    {
+      "path": "RoboFactory/script/MACG/STACKBOWL_README.md",
+      "sha256": "c47488b05c35abc3531a882f5254dfb1ba6b283467e99c4b09f446d8328eca64"
+    },
+    {
+      "path": "RoboFactory/script/MACG/client.py",
+      "sha256": "c4d301fec10cc0c892e277f14a994f77f45e0c21e00e49c243d73181e1d405a7"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_common/__init__.py",
+      "sha256": "f5a8853c65b08933a81111f81973a8142d30bb0bc7729d12269e2be54112e989"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_common/aggregate_progress.py",
+      "sha256": "c27f49ce1194c37b66baf8703987f0838fdbb6d93111b19af5cda0af1de95872"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_common/eval_hooks.py",
+      "sha256": "0e84f32c841558fed24fba8c394b16ef5189db811cdb6d7609d1f50bd345d396"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_common/progress_specs/handover_bottles.json",
+      "sha256": "0081b563621468f581c9355a9abfb8936d6934d25b95f6d85e6774d7d2fa4fa9"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_common/progress_specs/place_burger_fries.json",
+      "sha256": "3e734cf1b50a4b7256db2fe5dd05af784e53c25b097c3ea33ecc0e57e1792b60"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_common/progress_specs/place_can_basket.json",
+      "sha256": "83663fcfec7ff2c11a4205c890de3d07df6559bbee79a278f4ef46e96408e594"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_common/progress_specs/place_cube_in_bowl.json",
+      "sha256": "e9f16067b85c00e65cd80d688f1c5d2cb0620e0dbd01cae5b6c1b17132031dbb"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_common/progress_specs/place_object_bowl_cabinet.json",
+      "sha256": "de75fb982624002a534e23b83f2090e20544a502003f2d903302ba21a684cbb8"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_common/progress_specs/place_object_cabinet.json",
+      "sha256": "86cfc09608b4598f19d0f4dabb80f57cbc65fd3dd7bbe5e34ff9f41de72b38ff"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_common/progress_specs/push_cube.json",
+      "sha256": "288d52bf12889ac502d834a452dbade569a1ebd65872cb66c994e6efc59e03fe"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_common/progress_specs/stack_bowl.json",
+      "sha256": "283e20f0e11c95778ebbc68268cfd8f9dd88636df4856de75d0312d46c7aaff9"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_common/progress_specs/stack_cube.json",
+      "sha256": "d54eed739ebe1539a42ac7d7da3360e4b2f9f7419415a3c87396b165f1404946"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_common/progress_tracker.py",
+      "sha256": "95b31fa74bf9ffbe7e062eb1640a39d2ebb3abc0ef72b325d8becdc7db595dac"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_common/tests/__init__.py",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_common/tests/test_aggregate_progress.py",
+      "sha256": "662b5406bba3714a47f08185dde884b4fb1a598bc419e80becdd7a662d281380"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_common/tests/test_progress_tracker.py",
+      "sha256": "672154bb4c052c9f4db665beefbcd8a032c8c1e51ddabd6771a1afe215f7aef5"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_placefactory.py",
+      "sha256": "84a1843cbe977ea019d55ef9bb68d0a231f614e9e0f34eb48f710bf0ad85eb49"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_placefactory_123_123.sh",
+      "sha256": "33b95090bb7f3f4788c4348b31a8ca21e9e2350a067f4d7da87d12b988ae4455"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_placefactory_object.sh",
+      "sha256": "90b1900591f5ce6c1f5d4ddb8554c2185f9a1045cdce3e329838609432416318"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base/REPRODUCIBILITY.md",
+      "sha256": "a20084518280b9d3aadf09c5839a128bb0eb2618f6502d524deae313ee2be7b0"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base/_common.sh",
+      "sha256": "d9e4ae2cdbd9cae32204db063adb3197e8e669a99bb983d3101004632da9d322"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base/handover_bottles.sh",
+      "sha256": "2882dbfce6f4118c654c74430e2c5251c17e2d44c7c7d84e30dc1867485177fe"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base/place_burger_fries.sh",
+      "sha256": "a31e57801fc0788b7f7d91663b2c7236ef39fb4ffb3eb250324947ef72deac1a"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base/place_can_basket.sh",
+      "sha256": "82ddede2679b2108ae8fb478f1af515534c1b60ae1da0ac2aa8c59269b001152"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base/place_cube_in_bowl.sh",
+      "sha256": "296b58b92ae8d38fff81f0d9e4dab6bdb77e75e2f2b2f75865ddc3c01c4f557e"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base/place_object_bowl_cabinet.sh",
+      "sha256": "876a44ede7f0a73a834379351bb2ca0a40914bd9969da00991744450e2676609"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base/place_object_cabinet.sh",
+      "sha256": "f736290c104fcf51776f28fb40991b93ccc848b2490a80f2ed86fd5a88441761"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base/push_cubes.sh",
+      "sha256": "b3f7003a5aa91f15dd7c7e96a65db661d3c4a4a9fee2648019ba8da7f046b13a"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base/run.sh",
+      "sha256": "4e26a10b694c45683a14bd2efc3e575e75eae2c8cac9d48cab056c3ffff5dcd3"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base/stack_bowls.sh",
+      "sha256": "c500dfc559bb08bb966ccc738900a3cad1cfa7f1db1d3afb64a37e9c9d4460ed"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base/stack_cubes.sh",
+      "sha256": "68958f226bd27fad47def601a444b98d0e71911477cbdd74890c45aad42b4a39"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base/three_arms_place_objects.sh",
+      "sha256": "00a93044678348cdf54df07f5b5772c598e7f4e92d007a8113d1f0785bfab5e2"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base_peram/README.md",
+      "sha256": "800fbf556b6fe9f91d3515ce802963d45b8c1f0f8d2519a1e5cb2ddf0b6908c0"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base_peram/dual_arm_proxy.py",
+      "sha256": "a14b81e586ccb50e24864ffa8b261d4abaf6178f4bd1a9a1fe228106b4cc7d89"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base_peram/handover_bottles.sh",
+      "sha256": "1eea9ba8278b76e67c4629be7c69df5ed43e79ca4af919386f4bb99ee2513255"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base_peram/place_burger_fries.sh",
+      "sha256": "24efec724ffb4b882ff08b63c55551781565adaa41bb859c0b99306c23685914"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base_peram/place_can_basket.sh",
+      "sha256": "86d534a04fd012cd24784e328416ca277325146322d58291ce3863699ec14936"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base_peram/place_cube_in_bowl.sh",
+      "sha256": "6d1e27e58d0c4bdb80b8f4b1f9aa1c3b73f204799d187943f7418fc6fb3fdb86"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base_peram/place_object_bowl_cabinet.sh",
+      "sha256": "84ace3abeb2d6b0cd66a6316203d9c025e2290acca0e25bd1cb9c700c60a84fd"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base_peram/place_object_cabinet.sh",
+      "sha256": "133ed62e06e93bad6d295610be7a4457ac7ec346dc369ad4bd1394a1683ebf49"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base_peram/push_cubes.sh",
+      "sha256": "af413049986ba92d8e9e4b9fb39ca3062f97d41048a2e21e038d95bb3996dcf5"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base_peram/run.sh",
+      "sha256": "4ce983fb5f45515322d1f39ed44f47ca40da00bf4826f691b06dc7cc1aaa7cc2"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base_peram/run_with_proxy.sh",
+      "sha256": "6110fff9f8ba4d0c5b025fc207752f4832e664026d99597cfbae2d7b0e010ae0"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base_peram/stack_bowls.sh",
+      "sha256": "412e9b886d801acef295a5017491e83beef6bbdb7d2f2308042b37c38fcf9ded"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base_peram/stack_cubes.sh",
+      "sha256": "c0b8be1d05999d989b230428cba0ff61d12eee68ede9f435a770ded295fd60e8"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_rule_base_peram/test_dual_arm_proxy.py",
+      "sha256": "07333f8725f54e948f8ada14a709f6f914848d95c3f17ec27392529f6ebb89c1"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_vlm/eval_stackbowl_vlm.py",
+      "sha256": "f7510f39d3a7983d039809bcab7406cbb05c34b449f18832887b66d4a9f9b863"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_vlm/stack_bowls.sh",
+      "sha256": "54f5a2d079848d4481caae0c4c0ccf4ddeec366cc363b0e92783065dc1df73e8"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_vlm/stack_bowls_phases.yaml",
+      "sha256": "7f5d914ed9491ed7b509cc7b02bb40eb74133a10a8f0da6f183ce6075e037139"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_vlm/stack_bowls_sync_phases.yaml",
+      "sha256": "dc2d0b369a1d9ceb095a6f5e7bf5d596360d21acb133dbf05eb799b044ea9fe2"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_vlm/stack_bowls_vlm.sh",
+      "sha256": "f937630ab80e5e8bb1110956d9dd72e1cbfcc21abf8c3b074dfc576a7cb235ce"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_scripts_vlm/vlm_phase_decider.py",
+      "sha256": "f5e147a5463412c6493301c9a5f6b30aaf88090e827dff5f4e163126a15d98ed"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_stackcube.py",
+      "sha256": "811bb797f185e2b6101b281be4eeb38c396a66f480db8666033a7408c7840704"
+    },
+    {
+      "path": "RoboFactory/script/MACG/eval_stackcube.sh",
+      "sha256": "1acc61e3e666cdb60a023928f2f898f09f0ef1c322a45fcd38ef14925143038a"
+    },
+    {
+      "path": "RoboFactory/script/MACG/fun.yaml",
+      "sha256": "5f425665f398f0cca69617486e0d41c9c80de11087032186001ce231ea63b25f"
+    },
+    {
+      "path": "RoboFactory/script/MACG/phase_config_placefactory_123_123.yaml",
+      "sha256": "d242711a37b3601d6742040e3b30f7dee3a9e1604bdc8d058204efd4d04464bf"
+    },
+    {
+      "path": "RoboFactory/script/MACG/phase_config_placefactory_123_132.yaml",
+      "sha256": "b39b6bef43ea2e09691543e8d87d1a85478d135924a852b3ea08bc300300297a"
+    },
+    {
+      "path": "RoboFactory/script/MACG/phase_config_stackcube.yaml",
+      "sha256": "833e9aba8271998d198245b4390a2b6801d5eb4de56364d0a5e78d06ada5752d"
+    },
+    {
+      "path": "RoboFactory/script/MACG/run_handover.sh",
+      "sha256": "59212c2d53e0d49a0370377ee113de8f638eaa50af3e5b8818db043e686a036d"
+    },
+    {
+      "path": "RoboFactory/script/MACG/three_arms_place_objects/client.py",
+      "sha256": "c4d301fec10cc0c892e277f14a994f77f45e0c21e00e49c243d73181e1d405a7"
+    },
+    {
+      "path": "RoboFactory/script/MACG/three_arms_place_objects/eval_place_objects.py",
+      "sha256": "a36d55c637021a395a3d1c13a1bf888bd1e263ac1eb6f45aeb526ac876ff487d"
+    },
+    {
+      "path": "RoboFactory/script/MACG/three_arms_place_objects/eval_place_objects.sh",
+      "sha256": "dee5a8a129cd86b2e48f39301c1ce1dba01e1285f62799c1ac53b66a147bc3b9"
+    },
+    {
+      "path": "RoboFactory/script/MACG/three_arms_place_objects/place_objects_composite.yaml",
+      "sha256": "46794059c88f5be2385880c44a4a326fc834f93162a29d93bd2a3e4d2f0f39c6"
+    },
+    {
+      "path": "RoboFactory/script/MACG/three_arms_place_objects/place_objects_composite_sync.yaml",
+      "sha256": "cbfe22a5f37ad90a123a15ad8569b9b3c28f8eb0e8cf64191cdba9a2d00e1245"
+    },
+    {
+      "path": "RoboFactory/script/MACG/three_arms_place_objects/place_objects_indomain.yaml",
+      "sha256": "49b2f82bcaec2f58461a8940cf27fa477465572f323d0cee74a70700d5b57f57"
+    },
+    {
+      "path": "RoboFactory/script/MACG/three_arms_place_objects/place_objects_reorder.yaml",
+      "sha256": "ddcc81a795f39af59b07e12e62d08cb98b0ce66b7524ce24a610e93703a785b1"
+    },
+    {
+      "path": "RoboFactory/script/MACG/three_arms_place_objects/place_objects_reorder_132.yaml",
+      "sha256": "356feab9a165095a7a853e347d407f166192085fe9976078a888f151c2f5c25d"
+    },
+    {
+      "path": "RoboFactory/script/MACG/three_arms_place_objects/place_objects_reorder_213.yaml",
+      "sha256": "2b775be9ea848b60305dc809ec7a0a100da694c890dd5daa7696a7d0f8cfd6d6"
+    },
+    {
+      "path": "RoboFactory/script/MACG/three_arms_place_objects/place_objects_sync.yaml",
+      "sha256": "4c2634d28fd044b21c497506e63073b7cf06b5c8409ab2cac15945c18ce5c528"
+    },
+    {
+      "path": "RoboFactory/script/MACG/three_arms_place_objects/rule.py",
+      "sha256": "023f15090a1ba1f8fd249f13b58eb9175fc75bea048bcbecad87ddff4669592f"
+    },
+    {
+      "path": "RoboFactory/script/MACG/tmp/stack_bowls_hard_20019.sh",
+      "sha256": "f94e1b151981228ad674bf42cc42675d26d39a060808a06c455106e87ae3fbed"
+    },
+    {
+      "path": "RoboFactory/script/MACG/tmp/stack_bowls_hard_20022.sh",
+      "sha256": "0248428fff05eb27bcfe0ca79a7b0269912ac27cd062646142a5040bd8c959bb"
+    },
+    {
+      "path": "RoboFactory/script/MACG/tmp/stack_cubes_hard.sh",
+      "sha256": "7b86ca632d2cf2f4f35d7b82ff90a2a3fc00f198cdf77c0ed655a59b31a08dd6"
+    },
+    {
+      "path": "RoboFactory/script/MACG/tmp/stack_cubes_hard1.sh",
+      "sha256": "d68408a060b0c1b68e7c0fc01a0032c6a81d4ac06aed1f5b4d33f6bf5c1d04ac"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_handover_bottle/client.py",
+      "sha256": "c4d301fec10cc0c892e277f14a994f77f45e0c21e00e49c243d73181e1d405a7"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_handover_bottle/eval_handover_bottles.py",
+      "sha256": "fca0f0f5c7999fbd8d6e063d0b9fefa72080b6ad425535a5045573dda153b87d"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_handover_bottle/eval_handover_bottles.sh",
+      "sha256": "69de71f2a4f6de51daadf1b97e0fd46ac185229f050fd2e11a131c0ac0a3630c"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_handover_bottle/handover_bottles_indomain.yaml",
+      "sha256": "a63ec8ce5508e8fcfb4a0b678bf824dc04aad0d94ac9c21adee0445166ffc781"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_handover_bottle/handover_bottles_reorder.yaml",
+      "sha256": "ec4599e9ae7b993a17c70549c6fb84e31a701ab03ebfc1e9c65a6617e2e6d418"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_handover_bottle/rule.py",
+      "sha256": "6c77efe3f4dbca08131a8968894cbff043d348df30f92f1bf5fffb3e1b667ba0"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_burger_fries/client.py",
+      "sha256": "a688ab168bf1acee761e97d071380d5b869982d26f53d6ad8fd2f007a35848f7"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_burger_fries/eval_place_burger_fries.py",
+      "sha256": "5ba70ac103464f0bf5bcf04f6e6399842e4593f1587219ade20f919a1dbd42c6"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_burger_fries/eval_place_burger_fries.sh",
+      "sha256": "72709445b5a61f7e2e3b33531facbe56c9fa0807aac1167ed82f0c24bc95ff04"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_burger_fries/place_burger_fries_indomain.yaml",
+      "sha256": "8fdbedeb90a623c2a787d467b6614fe5fd497c9d8e2607fdd5f8b19bd1584c72"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_burger_fries/place_burger_fries_reorder.yaml",
+      "sha256": "d47588e54182e91eea0b70acafef8ce8fc53150f026be1daec734fcbf6e9c8ad"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_burger_fries/place_burger_fries_sync.yaml",
+      "sha256": "52605e3f590b49b62385cd345f48b36e635e8082ff7ebfbe17d8e233a6111718"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_burger_fries/place_burger_fries_syncreorder.yaml",
+      "sha256": "936db53c1d046feb3ae1e9eb0a2c624c27db0a5d124a5a5cca1615dfa8fb54b8"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_burger_fries/rule.py",
+      "sha256": "c1723c6d25b331c807aae23e630f9f1cfbef90553abb469d6ebaab21502b6eb0"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_can_basket/client.py",
+      "sha256": "c4d301fec10cc0c892e277f14a994f77f45e0c21e00e49c243d73181e1d405a7"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_can_basket/eval_place_can_basket.py",
+      "sha256": "e3bab838138fec6315b9a5b0361b719a94b0a3ce9d1a12cdcf0eec39613e8cb7"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_can_basket/eval_place_can_basket.sh",
+      "sha256": "b3d1accad0202ca1032199e76e9f477ea8059589aa9cc664ed93732268621724"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_can_basket/place_can_basket_indomain.yaml",
+      "sha256": "e2346ce08d3b9432953c5b5d452bfb6f70fa412c2deb706c268183b65140cd1b"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_can_basket/place_can_basket_sync.yaml",
+      "sha256": "574e99fd3c4e0360e29f47a6541a5215d1298f572c60f1b38c3d0abaa7a8db6d"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_can_basket/rule.py",
+      "sha256": "506fb7daedff6db5f9aed663ad29c5ba258913c66135be84fdffef6a538b9d1c"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_cube_in_bowl/client.py",
+      "sha256": "c4d301fec10cc0c892e277f14a994f77f45e0c21e00e49c243d73181e1d405a7"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_cube_in_bowl/eval_place_cube_in_bowl.py",
+      "sha256": "282bcb71df94072464ce7d3d9503eb20d598516c7a5dbeb210a45a739cc1fabc"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_cube_in_bowl/eval_place_cube_in_bowl.sh",
+      "sha256": "710affe4e94610adeee3e67283f652fb96f5981e73ce81990462187d833cdb55"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_cube_in_bowl/place_cube_in_bowl_indomain.yaml",
+      "sha256": "31a0f5f019dccd714154309d2b06bf23de7a856b56612fc891896c7406e3b3db"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_cube_in_bowl/place_cube_in_bowl_sync.yaml",
+      "sha256": "9a6cb25f1e93d2ba2912b669fb4c90ff077fbefe73158517b64e1154959dc221"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_object_bowl_cabinet/client.py",
+      "sha256": "c4d301fec10cc0c892e277f14a994f77f45e0c21e00e49c243d73181e1d405a7"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_object_bowl_cabinet/eval_place_object_bowl_cabinet.py",
+      "sha256": "cdea98cfe96ff0dd50d1b442ad64773acdeac1de5a3c81012573de677a041664"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_object_bowl_cabinet/eval_place_object_bowl_cabinet.sh",
+      "sha256": "e4061357d3f65f4900f7c7199a20cffad00c8429896eb0f32334f0a490acf8e0"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_object_bowl_cabinet/place_object_bowl_cabinet_indomain.yaml",
+      "sha256": "c7d8e8754c7298118c6a15005c6c93195f5d7e44eb7eb4509e54f29be40e7f7a"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_object_bowl_cabinet/place_object_bowl_cabinet_sync.yaml",
+      "sha256": "50e70360652461f107931e30c575685da9f0ab59ef873d7b757b47637d0606ba"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_object_cabinet/client.py",
+      "sha256": "c4d301fec10cc0c892e277f14a994f77f45e0c21e00e49c243d73181e1d405a7"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_object_cabinet/eval_place_object_cabinet.py",
+      "sha256": "eadad4fd21ad1cc3a5ace5bb318d607ffd382069e759ce7d264aea83d2900d20"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_object_cabinet/eval_place_object_cabinet.sh",
+      "sha256": "5769fc683c6e9358564cf1e92ef2346c01f2963b23c32e5f1c787fd239579e05"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_object_cabinet/place_object_cabinet_indomain.yaml",
+      "sha256": "ee74310139adac74d2ce66710133040c2a7df956df1f83aa9d9b07bc232b6e52"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_object_cabinet/place_object_cabinet_sync.yaml",
+      "sha256": "bbae85c0b258e6878651b541a825bad1232cf728b1077d82dfdd0f93dd2ffd07"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_place_object_cabinet/rule.py",
+      "sha256": "1110eda9bb62a8f5c326683c342cadfc3a5a364663483bc2b315045b4bd3eceb"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_push_cube/client.py",
+      "sha256": "4e48bf59ce1dd2a02d7d4129e6f331a12475245714230916b0bf5f090b3bbe46"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_push_cube/eval_two_arms_pushcube.py",
+      "sha256": "064fa257ab6a3e26277ea34fd168f05e1a180e07fd0a5a984c1cd658573460b3"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_push_cube/eval_two_arms_pushcube.sh",
+      "sha256": "6362bdc961260254fa3f59ddd9ecf2d56333b063f108e7b01a416bf5a246ae10"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_push_cube/push_cubes_indomain.yaml",
+      "sha256": "8d4a8538d323f5bf6e299cab72cfe3cc328f3b8d95808b830116df0d8b59ee74"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_push_cube/push_cubes_reorder.yaml",
+      "sha256": "d687c1432d8b20b27d330cd8bcd4e7e8aecafb99feef1c71faebf1d1647a2485"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_push_cube/push_cubes_sync.yaml",
+      "sha256": "0f0c9b9e8ddb447438edb79a2aaa7c04ffc751aa9d72acfa14f041348f9946ce"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_push_cube/push_cubes_syncreorder.yaml",
+      "sha256": "e02d37b64bbae0f4d6d86022c18d010ddce7400f13d1fea6dc1ebf71e5c3aadf"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_push_cube/rule.py",
+      "sha256": "9a8e678054bc0276799673771fb812bf67f77dde37601b5c6bef0488f1e9ebe8"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_stack_bowl/client.py",
+      "sha256": "c4d301fec10cc0c892e277f14a994f77f45e0c21e00e49c243d73181e1d405a7"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_stack_bowl/eval_stackbowl.py",
+      "sha256": "bf60a01767ddb3c6d4e4913cb9f776018543da1371d15995e08b0cf0e6db0513"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_stack_bowl/eval_stackbowl.sh",
+      "sha256": "97345ebbf146e506c576b1bcd17ae68b86bc908540d324dae07b7ed871b31574"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_stack_bowl/rule_stackbowls.py",
+      "sha256": "5dec951acf3e079b8aff896d04f8426a0c8524163cc630777868e729d4d87084"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_stack_bowl/stack_bowls_indomain.yaml",
+      "sha256": "95d377f03337fb0c0e0c85975f7e65f52fb8d1c01c53957fc35783ff19a17e9f"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_stack_bowl/stack_bowls_reorder.yaml",
+      "sha256": "af1064f84bb683a9e599fc3530dced8de4d46bfc7a3d47f9f01ff6250ba162c1"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_stack_bowl/stack_bowls_sync.yaml",
+      "sha256": "e1e2ed269908fc54a4ec6ff80ee936fadd6e2986f07c49fa029e98ea959ad02a"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_stack_bowl/stack_bowls_syncreorder.yaml",
+      "sha256": "a78c7bc040fec79066e6417b6abf25caa05349d3fa4c4d7f95499ed290fc62ed"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_stack_cube/client.py",
+      "sha256": "c4d301fec10cc0c892e277f14a994f77f45e0c21e00e49c243d73181e1d405a7"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_stack_cube/eval_two_arms_stackcube.py",
+      "sha256": "b2ca0dffd7bdf8e1fa780340ead1e9a4d20216d381feef882214b5a4afac2554"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_stack_cube/eval_two_arms_stackcube.sh",
+      "sha256": "4a1db84823adc59b280676c19a852b60c5aff86ddd42a919fc3596a6b5fa78b0"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_stack_cube/rule_stackcubes.py",
+      "sha256": "966617714198ead82d4b50e754439bbc599e2e1076331c92f632ea1697fb1e64"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_stack_cube/stack_cubes_indomain.yaml",
+      "sha256": "42d16e2953d39a3f90a4158f927c9e9ecf7a640dbf42bbd63dc4df2b6a4a9201"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_stack_cube/stack_cubes_reorder.yaml",
+      "sha256": "c12df9547388492454b398000771d03e2abd7a5eca94623b809e66cf6707888d"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_stack_cube/stack_cubes_sync.yaml",
+      "sha256": "e893e61261d92d6ddf90fdc5d944d768dfa41fd1f49f47187bd71a93235dc6f3"
+    },
+    {
+      "path": "RoboFactory/script/MACG/two_arms_stack_cube/stack_cubes_syncreorder.yaml",
+      "sha256": "a1e5c277a65e3ee1168781126446c922d472546f66bcd5135efe2c77670011c9"
+    },
+    {
+      "path": "RoboFactory/script/convert_h5_to_zarr_pipeline.sh",
+      "sha256": "6e789ba47cff5de78fa589f8bf067731d620cad83e53076e80dec2aa3ab999dd"
+    },
+    {
+      "path": "RoboFactory/script/download_assets.py",
+      "sha256": "fe59554b0df51442b9755d5bb011670717b5f4649cc92af252d3b9be2138b6d9"
+    },
+    {
+      "path": "RoboFactory/script/duplicate_zarr_episodes.py",
+      "sha256": "067d133747cfcdfd6842f59296eb0010d5efd1b53baba3c0308c88b39c3a122e"
+    },
+    {
+      "path": "RoboFactory/script/generate_data.py",
+      "sha256": "17b9d0d842a491c6a8e8de6b3d038d9bcb5205cb5430d1714fd1d95c863d48ac"
+    },
+    {
+      "path": "RoboFactory/script/generate_data_pointcloud.py",
+      "sha256": "8d13a8648972ce90693ad3bfff450260bc1b9ca8b1568e6410eab205c610c3f2"
+    },
+    {
+      "path": "RoboFactory/script/parse_h5_dir_to_zarr.py",
+      "sha256": "9dc87c913bfe58cee1650cdbb06af652e8e5f1f35f7d184a5a08557181c5d34b"
+    },
+    {
+      "path": "RoboFactory/script/parse_h5_to_pkl_dual_cam.py",
+      "sha256": "d463162e639d1d68e8a28d00c22045d8cde7f413c074aa41dc01882877efd605"
+    },
+    {
+      "path": "RoboFactory/script/parse_h5_to_pkl_multi.py",
+      "sha256": "34dc6fd85de5600a8a73602ab52654399ef01fed5ac5ba596bb9863c81ba9775"
+    },
+    {
+      "path": "RoboFactory/script/parse_h5_to_pkl_single.py",
+      "sha256": "551d0556c78a8c1ff4b08ecde2d9740e33a2c2c0cf2f70802bd31fc15e1259f1"
+    },
+    {
+      "path": "RoboFactory/script/parse_pkl_to_zarr_dp.py",
+      "sha256": "da459e0c7f356c1012e409bfe6f9af3d41b6e26c62ca170dac101c7885e76286"
+    },
+    {
+      "path": "RoboFactory/script/parse_pkl_to_zarr_dual_cam.py",
+      "sha256": "1b57e04a7ee83335263c5a361925b0282b2c1d15d49c8b12efdab4e7dec1c132"
+    },
+    {
+      "path": "RoboFactory/script/run_task.py",
+      "sha256": "aa32a020510994147310ca7346c8e6e8753b141473776e1f741dfd0aedc6b2dd"
+    },
+    {
+      "path": "RoboFactory/scripts/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "RoboFactory/scripts/perturbation/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "RoboFactory/scripts/perturbation/build_asset_bundle.py",
+      "sha256": "cd2b284b14d09e4c5dada7034d29116ea4db2c375ec6a019f44e751f3b756c9a"
+    },
+    {
+      "path": "RoboFactory/scripts/perturbation/record_manifests.py",
+      "sha256": "d0fe615652358249fad0773e4a5faedf1302a7a1060f5300bf30990a0368288c"
+    },
+    {
+      "path": "RoboFactory/scripts/perturbation/verify_replay.py",
+      "sha256": "fde84e4575e593026c32603a9affab0ae848c7e977956176d87ffcf3d845fcfd"
+    },
+    {
+      "path": "RoboFactory/tasks/GBR_ENVIRONMENT_README.md",
+      "sha256": "d2b16c045ca478ead4cc7a9ead8326f3f5e1c505eb2ac0656c442229d77e6fd7"
+    },
+    {
+      "path": "RoboFactory/tasks/__init__.py",
+      "sha256": "61a1186b2e955be952469d224773121eaab9f091642a9d2abc59619b26a8573a"
+    },
+    {
+      "path": "RoboFactory/tasks/camera_alignment.py",
+      "sha256": "df96a450b0abcbbc8e492d79e6108217eacba398d28c055e46f4ec77a0df1492"
+    },
+    {
+      "path": "RoboFactory/tasks/four_arms_pass_shoes.py",
+      "sha256": "2b63ad4e59ee5d874797a727d194776ff1679bf5798ae3a770efb290cbc92f24"
+    },
+    {
+      "path": "RoboFactory/tasks/four_arms_welding_cube.py",
+      "sha256": "d26de71d2665c169a5979bc0069f0e5dd46d1b17f3d4820b6c039f6696f09a5b"
+    },
+    {
+      "path": "RoboFactory/tasks/lift_barrier.py",
+      "sha256": "942c179112660207ef32ecc900f14d0f45026ddada4bddfa313609f16cd3c470"
+    },
+    {
+      "path": "RoboFactory/tasks/long_pipeline_delivery.py",
+      "sha256": "b5e057d348c0ae295c4ad29722bc7e6e1e8d57e4206594d41febd9253ede3d5f"
+    },
+    {
+      "path": "RoboFactory/tasks/one_arm_place_object.py",
+      "sha256": "591c31330e41afb4e744553d0831cf46d7a45c8891bee047c004c87c7fbab57a"
+    },
+    {
+      "path": "RoboFactory/tasks/pass_shoe.py",
+      "sha256": "9be5de05a9f2edfecc880637ffd30781add90987741b943db947170f0cb6d3d6"
+    },
+    {
+      "path": "RoboFactory/tasks/pick_meat.py",
+      "sha256": "0e271f371c9f4ee4bda9b41aa1ab2e08811ca76ec3cd1b262f94141719519b89"
+    },
+    {
+      "path": "RoboFactory/tasks/pick_meat_in_basket.py",
+      "sha256": "1ebeeeda01e124b7419397b649e1d0f6588de763a604b00fc375ff58ed470278"
+    },
+    {
+      "path": "RoboFactory/tasks/place_factory.py",
+      "sha256": "e584a6045859895cceb3b7cf333e0eebdcce288372416fec38cc1a7ebec0e13e"
+    },
+    {
+      "path": "RoboFactory/tasks/place_food.py",
+      "sha256": "38d76bdbb18b3417992d269167699a6405cbfb8a651eb33734bce4b7b6b1aa60"
+    },
+    {
+      "path": "RoboFactory/tasks/stack_cube.py",
+      "sha256": "55e3df221cc26ca7551500fbb8ed52f1177f0e3f90624b79c5579fcd1625129f"
+    },
+    {
+      "path": "RoboFactory/tasks/strike_cube.py",
+      "sha256": "c4a36dc875074b06407db5adb9c4da5b686ea9d77e816376cc42b284446c45ec"
+    },
+    {
+      "path": "RoboFactory/tasks/take_photo.py",
+      "sha256": "4258587c169f9a813fbc9f40376618ae1f2251cbdb4a0f1b9add01fa3cb8fb21"
+    },
+    {
+      "path": "RoboFactory/tasks/three_arms_place_objects.py",
+      "sha256": "f93b6e19d93ad227bb726b2cb36c307e6782277639d0592525309ea09674e229"
+    },
+    {
+      "path": "RoboFactory/tasks/three_arms_stack_cubes.py",
+      "sha256": "9c986b51847e84ace008eb6091182b68a02e37f26b30a823a44ee269cd1f1f08"
+    },
+    {
+      "path": "RoboFactory/tasks/three_robots_stack_cube.py",
+      "sha256": "523cebcf2e0b695291948ca5e0631448264c0350a2de232df0133255e09649fb"
+    },
+    {
+      "path": "RoboFactory/tasks/three_robots_stack_cube_gbr.py",
+      "sha256": "0b5ee79e746e7811bf4d0c6a3238f1dab67d1fb31f4ae30be5670584df390e50"
+    },
+    {
+      "path": "RoboFactory/tasks/two_arms_click_object.py",
+      "sha256": "28e9e91ea2ba5e5aed1a30de33f4cff02e89fd1c0ed2f22193ecbc5425a9521d"
+    },
+    {
+      "path": "RoboFactory/tasks/two_arms_handover_bottles.py",
+      "sha256": "b714a1fda54f90c361a22f4f69c9bb0c1f23a7dd1cca023d139c6e9e0164ee6f"
+    },
+    {
+      "path": "RoboFactory/tasks/two_arms_place_burger_fries.py",
+      "sha256": "e7af66acabaaf6adf69e32d47385a1bded8167481b9dac09d684fcb9ef2ba1aa"
+    },
+    {
+      "path": "RoboFactory/tasks/two_arms_place_can_basket.py",
+      "sha256": "9e62d131dcecc1d34f44c5e3308b9f213db573c0317e0cb13e2a5c6fb4170d96"
+    },
+    {
+      "path": "RoboFactory/tasks/two_arms_place_cube_in_bowl.py",
+      "sha256": "52290e1860881c18cc4583f5934f52181adaeebf325548f4002eba5aaa5fd3ba"
+    },
+    {
+      "path": "RoboFactory/tasks/two_arms_place_dual_shoes.py",
+      "sha256": "e329372f7adf3d7d9978b561ea583ff3a57b34b6862472fd4cc1cef57f7e8f45"
+    },
+    {
+      "path": "RoboFactory/tasks/two_arms_place_food.py",
+      "sha256": "1241cb0777e5027b3bf0fb7121cca8f2f5fc6925b50d82631ec4a98cd59519df"
+    },
+    {
+      "path": "RoboFactory/tasks/two_arms_place_object.py",
+      "sha256": "93cbf2b26df9bc4cc576643099ec98ca06c7ae9c714b9124c483c41cbfc62eac"
+    },
+    {
+      "path": "RoboFactory/tasks/two_arms_place_object_bowl_cabinet.py",
+      "sha256": "c87b69227e92d3d1cb3c2dac20a47bdd02f7c268b774159412af18dc69f2a694"
+    },
+    {
+      "path": "RoboFactory/tasks/two_arms_place_object_cabinet.py",
+      "sha256": "bd9cead6af5ab0b4924ce1dd53b20dcc59ce4e7b53be2a895b118461e47b63fd"
+    },
+    {
+      "path": "RoboFactory/tasks/two_arms_push_cube.py",
+      "sha256": "0fff6c98aeb0a2a31e7f388d2587cca22b98f4fc86a59e9fb314475eeb62ad05"
+    },
+    {
+      "path": "RoboFactory/tasks/two_arms_stack_bowl.py",
+      "sha256": "e47a0891cf3392fd8f60fc67a36c461b802a0c8721b6ca9c5cbc6bbc3845145c"
+    },
+    {
+      "path": "RoboFactory/tasks/two_arms_stack_cube.py",
+      "sha256": "24a5babac5fafa4fc60aed77ccac4620c74005b1d3238d11c757ede916aa89fa"
+    },
+    {
+      "path": "RoboFactory/tasks/two_robots_stack_cube.py",
+      "sha256": "41e6c78a253e585c25a98f97c50d27c9d983195abb04213a6ea3ef59d10758ce"
+    },
+    {
+      "path": "RoboFactory/utils/building/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "RoboFactory/utils/building/actor_utils.py",
+      "sha256": "b8633c51e7b44b2638aa3cfae13207b088da99bc8f51373e387e39895a5f636a"
+    },
+    {
+      "path": "RoboFactory/utils/building/actors.py",
+      "sha256": "633640dc12d901443301fa486952c3b68281eb99bb0bb63788faecae4749c4a0"
+    },
+    {
+      "path": "RoboFactory/utils/building/nonconvex_urdf_loader.py",
+      "sha256": "88be1ba5193875eaa0c13bb66f7c6393a254f4585d37069c15cce51f8c0a4ac1"
+    },
+    {
+      "path": "RoboFactory/utils/envs/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "RoboFactory/utils/envs/sapien_env.py",
+      "sha256": "63d9de4ca76349cd335e3c7b1caca489e8e1b39204b749d38ea3854bf4935be3"
+    },
+    {
+      "path": "RoboFactory/utils/envs/scene.py",
+      "sha256": "b41dfeae6311af76defddd8d22f9edd2d56119b46f4b7c5cbfde3bd4d60c2c5b"
+    },
+    {
+      "path": "RoboFactory/utils/mplib_utils.py",
+      "sha256": "d2d4aa67d0ba425ce7e67560861bd6a6d9f7b1c1e10d5a67b10cdc99b5e449d8"
+    },
+    {
+      "path": "RoboFactory/utils/perturbation/__init__.py",
+      "sha256": "921e55870e088f06df700de64af96d1ab3d15d51bad94a58bf261e109d64520d"
+    },
+    {
+      "path": "RoboFactory/utils/perturbation/manifest.py",
+      "sha256": "c391eff964a1c79806e20f9f6d178d392172b691411252d2f37e324005cb63ac"
+    },
+    {
+      "path": "RoboFactory/utils/perturbation/recorder.py",
+      "sha256": "8f24611ea2e9762907f3d7d56007899f2d0c50f3e30c8514f3fcc245dda83467"
+    },
+    {
+      "path": "RoboFactory/utils/sapien_utils.py",
+      "sha256": "41638f92a33aa7e4c15a4ec398703554adab7278019bcc773693b4df76e61f84"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/__init__.py",
+      "sha256": "af9964ea95debf22cea23dcb042607a1fe2922ddd1b3c5b8969a74cc6949c6c4"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/fixtures/accessories.py",
+      "sha256": "5da9efe45ec9c3438407b59e65c2e6ce9a68613fb87dcc1a1b75c92c48c006a2"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/fixtures/cabinet.py",
+      "sha256": "190570f9566eed836befd4f51df1118aec406aa98c7e3646b9caaeba0eb50e8b"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/fixtures/cabinet_panels.py",
+      "sha256": "43fbab89211efc2dee4fbc519b707ba96f8e4715a5e6fa84a78bd79bd2b8c93d"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/fixtures/counter.py",
+      "sha256": "7e0f7029d5d711dc430c5a8e4916d61d70c7de13fa78b0e2ce99ecc618d2ae35"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/fixtures/dishwasher.py",
+      "sha256": "8a1f7d14ded984a44090999304c3fc91b03d4699c7421e467987a40dea7ace8f"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/fixtures/fixture.py",
+      "sha256": "9443da55638eeb19c6689f5c0342bdfce09cd58ea9cf74f0d2b0a7ec80a41b31"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/fixtures/fixture_stack.py",
+      "sha256": "d2b24669f7ae94f2a04c251e6cd38a0a6bde692732ed2e55157e0ee0455343b1"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/fixtures/fixture_utils.py",
+      "sha256": "836f21540272d6ffd6a62784e52ccbb4a92f244f5b2f6327f17244d2c153e3b9"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/fixtures/fridge.py",
+      "sha256": "7e295d8d6435aef8f11553b3fe9488da89feb6aeadae9b1a717e3b327f82273a"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/fixtures/handles.py",
+      "sha256": "fa67cfb6be564d70b476a364817a1cb7bcd5060ea3a930e2dac4607dd0df986a"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/fixtures/hood.py",
+      "sha256": "651bfc3281d57c43ea4e0757b5400e87433f9cf9a44b319451900e84f69474ba"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/fixtures/microwave.py",
+      "sha256": "101bffa8160622fa07f1c0eb5557268c98707900d1ffe5c991eca1ce2913eae0"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/fixtures/mujoco_object.py",
+      "sha256": "0bca3c79cece001e08498727cc05a39baaa2192666d65b2d94d204e12cd8e0f4"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/fixtures/others.py",
+      "sha256": "82abeb446b7ea50bdd8a4e4bc5971bef089bd1210cbe6f68e1d625ff142d513f"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/fixtures/sink.py",
+      "sha256": "e177fc834f7d3ac43011d91ef5c7786c23ed8706300d15cfc4e0e023f005a80e"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/fixtures/stove.py",
+      "sha256": "d37dab37ba9e1e85c2266e13ee7ad88916fc07b07feb2e035ee4b7a03d0eea6e"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/fixtures/windows.py",
+      "sha256": "229e71b9b72436459a13d4066d9c72004a99b86e995f2f73a0544275299f697b"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/objects/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/objects/kitchen_object_utils.py",
+      "sha256": "828fe2ff79b4bb9b4d67c1260543e4e43357bea0c4ee6c771162ddda235ffbe8"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/objects/kitchen_objects.py",
+      "sha256": "68199558a441be1852df0de12cbc4a22ef5a725748c64cd58330cc4038bc7f35"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/objects/objects.py",
+      "sha256": "ac0dd79cbd7ca8438eb15de7e2824e6a3fabc66c17eef18d9b6fa6e3b3fea06a"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/scene_builder.py",
+      "sha256": "0987461558c1100076df6f7a1ae8675aa44f50122a716dc2dcff18782e585348"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/utils/mjcf_utils.py",
+      "sha256": "8f5cce05ad9c575ae327348507b55aa8b814ae47e183bd8cb9e73dbea0cb3b4e"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/utils/object_utils.py",
+      "sha256": "6de605e09402f42c4b1cd7b0d197bd3124901d342adc2e61fa21c29121db085a"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/utils/placement_samplers.py",
+      "sha256": "adc0db388771e4f059e4a2269a3fa494a69f62a6893bef10e125bc549e597937"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/utils/scene_registry.py",
+      "sha256": "6ba43a452dcffa5b76ce879f17090b1bb1e1bab59c89bb6d7569899d104b8934"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/robocasa/utils/scene_utils.py",
+      "sha256": "94239abac52cbd8603ea734b873e3ea3a54179acaa5ab0feb9585ca20da97263"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/scene_builder.py",
+      "sha256": "27c6802b3b4d91fec118540d9648c6d78edd2acb57ed79de9cb2d22d1b7b7de1"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/table/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/table/assets/Dining_Table_204_1.glb",
+      "sha256": "2257878b7e717d1f0ef5ab4a7a1aa35a2b82f4c72310544204a1d117ce70fd38"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/table/assets/table.glb",
+      "sha256": "cb0ebd8ad6438c1160f095d902bf55415f9d643f8c6990a186a052251fe7951a"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/table/scene_builder.py",
+      "sha256": "aeda8567f3e6a319045b1ba016efe6361a25a3b3761387ba90f1ddf7a84d40e8"
+    },
+    {
+      "path": "RoboFactory/utils/scenes/utils.py",
+      "sha256": "df001cb44058ec6f9795b2047b90884fdff9984ad5236632a7e4da843fd3f286"
+    },
+    {
+      "path": "RoboFactory/utils/wrappers/record.py",
+      "sha256": "eca7430cc4fc3b1cdbd42a29d838de5f34b7982b7713acbea0b7941deb8d97c7"
+    },
+    {
+      "path": "SECURITY.md",
+      "sha256": "6ae60aa698d1b8975611bcf444d78c9a0a06304cc6f3514dd8db16275c535cf4"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "6fecd697b3dbd49aaf7630a102148dbfab88f17393e681cc9dbd203e804c781c"
+    },
+    {
+      "path": "client.py",
+      "sha256": "94b4147158a668f6810f36a8a6e14199e0071104468f4b6f34c487e79d17c8e9"
+    },
+    {
+      "path": "docs/README.md",
+      "sha256": "0ea4feb6201142e82d039f5289ee6ea046d4b567b2c4bd4fa2a7a35d1a73a200"
+    },
+    {
+      "path": "docs/architecture.md",
+      "sha256": "4d032b02e1acc92042b9ede6bd7d5ff242357e9753cc1cc1fcb7e24057de87fb"
+    },
+    {
+      "path": "docs/archive/early-setup.md",
+      "sha256": "e881acd29b38c80fce23ca3dafe7ba5255fbeeca4d634c621ce63329f1ba57e8"
+    },
+    {
+      "path": "docs/archive/macg-notes.md",
+      "sha256": "e9562087efe3903c6b3f4a61a5fbd0617ee2de723fe4643174138eb6254e5407"
+    },
+    {
+      "path": "docs/evaluation.md",
+      "sha256": "6bac94b03e94be527ad50fe09550959496326d6d3a1bd9ff6b85d73c177bd12c"
+    },
+    {
+      "path": "docs/installation.md",
+      "sha256": "b46c06bd341625919a91739dc6c6260c715dc643c39c3ee5f54d468090c164ce"
+    },
+    {
+      "path": "docs/media/badges/ae-vla.svg",
+      "sha256": "99b3e03269596491d4453cef119b4e769b39480e1665e4e04951bf95c64a5786"
+    },
+    {
+      "path": "docs/media/badges/future.svg",
+      "sha256": "11f99a3b7953fa34abc4936c9a521910e0aa910ee3ef50ce33b062baff450513"
+    },
+    {
+      "path": "docs/media/badges/license.svg",
+      "sha256": "63301af10050c6abe221843639463f81c7bc40076ab5684ad0d1ec9907bd974a"
+    },
+    {
+      "path": "docs/media/badges/ma-vla.svg",
+      "sha256": "6859f96ed9f49ea33d466d8ef3bcddb15c559b9e0e9b673b14118bee6c56b6bc"
+    },
+    {
+      "path": "docs/media/future-eval-eml-banner.svg",
+      "sha256": "018976f93d2599cca18351361495b36363e4d99ecb6741f1b3e78990b1ab2f58"
+    },
+    {
+      "path": "docs/publishing.md",
+      "sha256": "992cdddcedf3e8696e236dbf4fce994e51f12acf782890f34f1852197478fab7"
+    },
+    {
+      "path": "example.pkl",
+      "sha256": "8ff9a7f7d9162737fd5278a4294c129b79de5662d18324e9fa82684946ff9386"
+    },
+    {
+      "path": "licenses/diffusion_policy.txt",
+      "sha256": "304e99a48271e10820f71a1b86ef395c06c100d7f68dd1d308790d1064fc4d41"
+    },
+    {
+      "path": "licenses/maniskill.txt",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "licenses/robocasa.txt",
+      "sha256": "5da18670b3f00c59847b1ded9c28dee59940d963b1e03b528b0108d9c5a09885"
+    },
+    {
+      "path": "licenses/robosuite.txt",
+      "sha256": "177978cbece0a4c454c2aaec5b3f145b39270814874c43109da9e829c39d9cba"
+    },
+    {
+      "path": "run.sh",
+      "sha256": "c0b874fa25b7c0cd100807c7b3a0399433a22650d472b88c9aa5900bc110c7ad"
+    },
+    {
+      "path": "scripts/check_release.py",
+      "sha256": "804442f703e867eee59f7ec8fd98b22bc4cbca917f50f5a1dba1a616884c2868"
+    },
+    {
+      "path": "scripts/evaluate.sh",
+      "sha256": "cb154ddcb56a0c6740f9f34cf9edd2d7c8a481aeb527fe06ec9b27b4ff4af6f0"
+    },
+    {
+      "path": "scripts/export_release.py",
+      "sha256": "a051f9e4a5d6082ad457fd457f4b44792181afa98ec7a2367fbaec1ae47db360"
+    },
+    {
+      "path": "test.py",
+      "sha256": "1f0a85bb09c1429047d094a05adf875a471d070528498a552a52ed4f84078bf4"
+    },
+    {
+      "path": "tests/test_evaluate_launcher.py",
+      "sha256": "59115e37b42dbfb1fa583462cb1adafb7f9d1290852146bb8599fda9da626f21"
+    },
+    {
+      "path": "tests/test_release_checks.py",
+      "sha256": "9dd2b6b79ba7db9719ad820abe3ff873e5230c38fa531b8e0fbf490a2d775d2f"
+    }
+  ]
+}

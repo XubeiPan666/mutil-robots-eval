@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "task": "place_cube_in_bowl",
+  "selectors": {
+    "env_id": ["TwoArmsCubeInBowl", "TwoArmsPlaceCubeInBowl"],
+    "status": ["two_arms_place_cube_in_bowl"]
+  },
+  "defaults": {"debounce_samples": 2, "sync_window_seconds": 45.0},
+  "signals": {
+    "agent0_holds_cube": {"agent": "agent0"},
+    "agent1_holds_bowl": {"agent": "agent1"},
+    "bowl_placed_on_tray": {"agent": "agent1"},
+    "cube_in_bowl": {"agent": "agent0"}
+  },
+  "modes": {
+    "indomain": {
+      "phase_basenames": ["place_cube_in_bowl_indomain"],
+      "milestones": [
+        {"id": "pick_bowl", "agent": "agent1", "predicate": "agent1_holds_bowl"},
+        {"id": "place_bowl", "agent": "agent1", "predicate": "bowl_placed_on_tray", "depends_on": ["pick_bowl"]},
+        {"id": "pick_cube", "agent": "agent0", "predicate": "agent0_holds_cube", "depends_on": ["place_bowl"]},
+        {"id": "place_cube_in_bowl", "agent": "agent0", "predicate": "cube_in_bowl", "depends_on": ["pick_cube"]}
+      ],
+      "order_constraints": [
+        {"before": "pick_bowl", "after": "place_bowl"},
+        {"before": "place_bowl", "after": "pick_cube"},
+        {"before": "pick_cube", "after": "place_cube_in_bowl"}
+      ]
+    },
+    "sync": {
+      "phase_basenames": ["place_cube_in_bowl_sync"],
+      "milestones": [
+        {"id": "pick_cube", "agent": "agent0", "predicate": "agent0_holds_cube", "hold_signal": "agent0_holds_cube", "sync_group": "sync_pick"},
+        {"id": "pick_bowl", "agent": "agent1", "predicate": "agent1_holds_bowl", "hold_signal": "agent1_holds_bowl", "sync_group": "sync_pick"},
+        {"id": "place_bowl", "agent": "agent1", "predicate": "bowl_placed_on_tray", "depends_on": ["pick_cube", "pick_bowl"]},
+        {"id": "place_cube_in_bowl", "agent": "agent0", "predicate": "cube_in_bowl", "depends_on": ["place_bowl"]}
+      ],
+      "sync_groups": [{"id": "sync_pick", "members": ["pick_cube", "pick_bowl"], "reject_early_release": true}],
+      "order_constraints": [
+        {"before": "pick_cube", "after": "place_bowl"},
+        {"before": "pick_bowl", "after": "place_bowl"},
+        {"before": "place_bowl", "after": "place_cube_in_bowl"}
+      ]
+    }
+  }
+}

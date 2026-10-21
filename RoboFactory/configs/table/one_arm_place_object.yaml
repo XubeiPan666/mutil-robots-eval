@@ -1,0 +1,123 @@
+# configuration for objects and agents, add scene as well
+task_name: OneArmPlaceObject
+scene:
+  name: Table
+  assets: 
+    - name: table
+      file_path: assets/scenes/table/table.glb
+      collision:
+        type: box
+        pos:
+          p: [0, 0, 0.45982145]
+          half_size: [3.0225, 1.51125, 0.45982145]
+      pos: 
+        ppos:
+          p: [-0.12, 0., -0.9196429]
+          q: [0., 0., 1.5707963268]
+        randp_scale: [0., 0., 0.]
+        randq_scale: [0., 0., 0., 0.]
+      scale: [4.375, 4.375, 1.75]
+  env:
+    floor_width: 100
+    
+objects:
+  
+  - 
+    name: object
+    file_path: release/perturbation_assets_v1/perturbation_assets_v1/distractors/057_toycar/visual/base3.glb
+    annotation_path: release/perturbation_assets_v1/perturbation_assets_v1/distractors/057_toycar/model_data3.json
+    material: 
+      type: sapien.pysapien.physx.PhysxMaterial
+      params:
+        static_friction: 0.3
+        dynamic_friction: 0.3
+        restitution: 0.
+    visual:
+      filename: release/perturbation_assets_v1/perturbation_assets_v1/distractors/057_toycar/visual/base3.glb
+      scale: [0.08, 0.08, 0.08]
+    collision:
+      type: convex
+      filename: release/perturbation_assets_v1/perturbation_assets_v1/distractors/057_toycar/collision/base3.glb
+      scale: [0.08, 0.08, 0.08]
+    pos:
+      ppos:
+        p: [0.3, -0.6, 0.]
+        # p: [0.4, -0.6, 0.]
+      qpos: [0.5, 0.5, 0.5, 0.5]
+      # qpos: [0.7, 0.5, 0.5, 0.5]
+      # randp_scale: [0.2, 0.2, 0.]
+  
+  -
+    name: woodenbox
+    file_path: release/perturbation_assets_v1/perturbation_assets_v1/distractors/042_wooden_box/visual/base0.glb
+    annotation_path: release/perturbation_assets_v1/perturbation_assets_v1/distractors/042_wooden_box/model_data0.json
+    material: 
+      type: sapien.pysapien.physx.PhysxMaterial
+      params:
+        static_friction: 0.5
+        dynamic_friction: 0.5
+        restitution: 0.
+    visual:
+      filename: release/perturbation_assets_v1/perturbation_assets_v1/distractors/042_wooden_box/visual/base0.glb
+      scale: [0.07, 0.07, 0.07]
+    collision:
+      type: multiple_convex
+      filename: release/perturbation_assets_v1/perturbation_assets_v1/distractors/042_wooden_box/collision/base0.glb
+      scale: [0.07, 0.07, 0.07]
+    body_type: static  # Set tray as static (immovable) object
+    pos:
+      ppos:
+        p: [0.42, 0., 0.]
+      # qpos: [0.706527, 0.706483, -0.0291356, -0.0291767]  # 原始朝向
+      # qpos: [0.707106781, 0.707106781, 0, 0]  # 绕X轴旋转90度
+      qpos: [0.5, 0.5, 0.5, 0.5]  # 绕Z轴旋转90度（水平面内旋转）
+
+agents:
+  - 
+    robot_uid: panda-0
+    pos:
+      ppos:
+        p: [-0.2, -0.2, 0.]
+        q: [0., 0., 0.]
+      # qpos: [0., 0.3926990817, 0., -1.9634954085, 0., 2.3561944902, 0.7853981634, 0.04, 0.04]
+      qpos: [2.79534620e+00, -6.60335258e-01, 2.76121093e+00, -1.74888507e+00, 3.65591590e-01, 2.32467036e+00, -1.69019915e-01, 1.60867420e-02, 2.21672559e-03]
+      randp_scale: [0., 0., 0.]
+      randq_scale: [0., 0., 0., 0., 0., 0., 0., 0., 0.]
+
+cameras:
+  sensor:
+    - 
+      uid: wrist_camera_agent0
+      pose:
+        type: pose
+        params: [[0.2, 0, -0.18], [0.0, 0.707107, 0.0, 0.707107]]  # 相对于末端执行器的偏移值，分别是位置偏移和旋转四元数
+      width: 224
+      height: 224
+      # fov: 1.5707963268
+      fov: 2.0943951024
+      near: 0.1
+      far: 10
+    
+    - 
+      uid: head_camera_global
+      pose:
+        type: look_at
+        params: [[0.6, 0.0, 0.4], [0.3, -0.3, 0.1]]
+      width: 224
+      height: 224
+      fov: 2.0943951024
+      near: 0.1
+      far: 10
+    
+
+  human_render:
+    - 
+      uid: render_camera
+      pose:
+        type: look_at
+        params: [[0.6, 0.7, 0.6], [0.0, 0.0, 0.35]]
+      width: 1024
+      height: 1024
+      fov: 1
+      near: 0.01
+      far: 100

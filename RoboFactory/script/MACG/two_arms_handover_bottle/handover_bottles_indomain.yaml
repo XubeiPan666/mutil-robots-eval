@@ -1,0 +1,69 @@
+# Phase Configuration for TwoArmsHandoverBottles - In-domain (rule-based)
+# Sequential: agent0 grasps bottle1, hands over to agent1 who places it,
+# then agent0 grasps bottle2, hands over, agent1 places it.
+#
+# State machine (7 phases, purely gripper-triggered):
+#   Phase 1 (a0 grasp B1)  --[agent0_grip]-->    Phase 2 (a0 handover B1)
+#   Phase 2                --[agent0_release]--> Phase 3 (a1 place B1)
+#   Phase 3                --[agent1_release]--> Phase 4 (a0 grasp B2)
+#   Phase 4                --[agent0_grip]-->    Phase 5 (a0 handover B2)
+#   Phase 5                --[agent0_release]--> Phase 6 (a1 place B2)
+#   Phase 6                --[agent1_release]--> Phase 7 (done)
+
+mode: "rule_based"
+initial_phase: 1
+gripper_threshold: 0.032
+min_steps_per_phase: 1
+
+phase_instructions:
+  1:
+    agent0: "Pick up the balck bottle."
+    agent1: "Wait for the other robots."
+  2:
+    agent0: "Handover the black bottle."
+    agent1: "Receive the black bottle."
+  3:
+    agent0: "Recover."
+    agent1: "Place the black bottle into the basket."
+  4:
+    agent0: "Pick up the white bottle."
+    agent1: "Recover."
+  5:
+    agent0: "Handover the white bottle."
+    agent1: "Receive the white bottle."
+  6:
+    agent0: "Recover."
+    agent1: "Place the white bottle into the basket."
+  7:
+    agent0: "Wait for the other robots."
+    agent1: "Recover."
+
+transitions:
+  - from: 1
+    to: 2
+    condition: "agent0_grip"      # A0 grasps bottle 1
+  - from: 2
+    to: 3
+    condition: "agent0_release"   # A0 releases bottle 1 (handover to A1)
+  - from: 3
+    to: 4
+    condition: "agent1_release"   # A1 places bottle 1 in basket
+  - from: 4
+    to: 5
+    condition: "agent0_grip"      # A0 grasps bottle 2
+  - from: 5
+    to: 6
+    condition: "agent0_release"   # A0 releases bottle 2 (handover to A1)
+  - from: 6
+    to: 7
+    condition: "agent1_release"   # A1 places bottle 2 in basket
+
+# Timestep-based fallback schedule
+phase_schedule:
+  1-5: 1
+  5-15: 2
+  15-25: 3
+  25-35: 4
+  35-45: 5
+  45-55: 6
+  55+: 7

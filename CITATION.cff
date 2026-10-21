@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use this evaluation code, cite the relevant MA-VLA and ACG-Bench / AE-VLA papers in CITATION.bib."
+type: software
+title: "Future / Evaluation: Arm-wise Compositional Generalization"
+authors:
+  - name: Evolving Machines Lab
+repository-code: "https://github.com/zhangzaibin/future-robots-eval"
+url: "https://zhangzaibin.github.io/evolving-machines/"
+license: MIT
+keywords:
+  - robotics
+  - vision-language-action
+  - compositional generalization
+  - multi-arm manipulation
+preferred-citation:
+  type: article
+  title: "Arm-wise Compositional Generalization in Dual-Arm Vision-Language-Action Models"
+  authors:
+    - {family-names: Zhang, given-names: Zaibin}
+    - {family-names: Ran, given-names: Binghao}
+    - {family-names: Wu, given-names: Yuhan}
+    - {family-names: Zhang, given-names: Zhongbo}
+    - {family-names: Wang, given-names: Yifan}
+    - {family-names: Jiang, given-names: Junwei}
+    - {family-names: Xiao, given-names: Junlan}
+    - {family-names: Shi, given-names: Wangcheng}
+    - {family-names: Kang, given-names: Li}
+    - {family-names: Qin, given-names: Yiran}
+    - {family-names: Yin, given-names: Zhenfei}
+    - {family-names: Wang, given-names: Lijun}
+    - {family-names: Lu, given-names: Huchuan}
+  journal: "arXiv preprint arXiv:2610.06184"
+  doi: 10.48550/arXiv.2610.06184
+  url: "https://arxiv.org/abs/2610.06184"
+  year: 2026

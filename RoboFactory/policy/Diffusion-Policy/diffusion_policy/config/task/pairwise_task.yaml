@@ -1,0 +1,61 @@
+name: pairwise_task_config
+
+# Image shape for both cameras
+image_shape: &image_shape [3, 224, 224]
+
+shape_meta: &shape_meta
+  # acceptable types: rgb, low_dim
+  obs:
+    # Two images from different perturbation conditions
+    img1:
+      shape: *image_shape
+      type: rgb
+    img2:
+      shape: *image_shape
+      type: rgb
+    # State from condition 1
+    agent_pos:
+      shape: [9]  # qpos: 7 joints + 2 grippers
+      type: low_dim
+  action:
+    shape: [8]  # 7 joints + 1 gripper (normalized)
+
+# Environment runner (not used for pairwise training)
+env_runner:
+  _target_: diffusion_policy.env_runner.pusht_image_runner.PushTImageRunner
+  n_train: 6
+  n_train_vis: 2
+  train_start_seed: 0
+  n_test: 50
+  n_test_vis: 4
+  legacy_test: True
+  test_start_seed: 100000
+  max_steps: 300
+  n_obs_steps: ${n_obs_steps}
+  n_action_steps: ${n_action_steps}
+  fps: 10
+  past_action: ${past_action_visible}
+  n_envs: null
+
+# Pairwise H5 Dataset configuration
+dataset:
+  _target_: diffusion_policy.dataset.pairwise_h5_dataset.PairwiseH5Dataset
+  # Option 1: Provide h5_files list directly
+  h5_files: null
+  # Option 2: Provide h5_dir to auto-discover all .h5 files in directory
+  h5_dir: null
+  # Option 3: Provide h5_clean (clean file) + h5_dir (perturbed files directory)
+  h5_clean: null
+  h5_pattern: "*.h5"  # glob pattern for h5 files
+  agent_id: 0
+  camera_name: wrist_camera_agent0
+  pairs_per_index: 50
+  seed: 42
+  val_ratio: 0.02
+  preload_to_memory: true
+  # DP compatibility - UNet requires horizon >= 8
+  horizon: ${horizon}
+  n_obs_steps: ${n_obs_steps}
+  pad_before: 0
+  pad_after: 0
+  max_train_episodes: null

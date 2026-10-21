@@ -1,0 +1,36 @@
+# Phase Configuration Example
+# This file defines phase instructions and phase schedule for multi-agent evaluation
+
+# Define instructions for each phase
+# Each phase can have different instructions for each agent
+phase_instructions:
+  1:
+    agent0: "Pick up the red cube."
+    agent1: "Pick up the green cube."
+    agent2: "Pick up the blue cube."
+  3:
+    agent0: "Place the cube on the target."
+    agent1: "Wait for the other robots."
+    agent2: "Wait for the other robots."
+  4:
+    agent0: "Wait for the other robots."
+    agent1: "Place the cube on the target."
+    agent2: "Wait for the other robots."
+  5:
+    agent0: "Wait for the other robots."
+    agent1: "Wait for the other robots."
+    agent2: "Place the cube on the target."
+
+# Define phase schedule
+# Format options:
+# 1. String format: "1:1,2:2,3-5:3,6-8:4,9+:5"
+# 2. Dictionary format (as shown below):
+phase_schedule:
+  1-2: 1        # Step 1 uses phase         # Step 2 uses phase 2
+  3-5: 3      # Steps 3-5 use phase 3
+  6-8: 4      # Steps 6-8 use phase 4
+  9+: 5       # Steps 9 and beyond use phase 5
+
+# Alternative string format (uncomment to use):
+# phase_schedule: "1:1,2:2,3-5:3,6-8:4,9+:5"
+

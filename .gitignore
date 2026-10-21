@@ -1,0 +1,113 @@
+# compilation and distribution
+__pycache__
+RoboFactory/assets/*
+RoboFactory/demos/
+assets/*
+RoboFactory/demos
+RoboFactory/data
+RoboFactory/eval_video
+RoboFactory/checkpoints
+place_factory
+RoboFactory/generate_data.sh
+RoboFactory/demo
+DataAugmentation/test_inpainted
+DataAugmentation/panda
+DataAugmentation/outputs
+DataAugmentation/inpainted_visualizations
+
+
+_ext
+*.pyc
+*.so
+build/
+dist/
+*.egg-info/
+
+
+# ipython/jupyter notebooks
+# *.ipynb
+**/.ipynb_checkpoints/
+
+# Editor temporaries
+*.swn
+*.swo
+*.swp
+*~
+*.log
+
+# MacOS
+*.DS_Store
+
+# Pycharm editor settings
+.idea
+
+# VSCode editor settings
+.vscode
+
+# project-relevant
+imgui.ini
+
+# directories that should be ignored in general
+# but can be excluded explicitly
+/tmp
+/data
+/demos
+/videos
+/examples/benchmarking/videos
+/assets/*
+/testvideo
+
+# benchmarking
+/benchmark_results
+/mani_skill/examples/benchmarking/benchmark_results
+/mani_skill/examples/benchmarking/videos
+# testing
+.coverage*
+htmlcov/
+
+results/
+
+!RoboFactory/assets/.gitkeep
+
+gpt_images
+
+RoboFactory/augmentation_vis
+
+RoboFactory/tmp/*
+
+RoboFactory/eval_video_old
+
+vis_nips
+
+RoboFactory/release/*
+
+# Local VLM credentials
+RoboFactory/script/MACG/eval_scripts_vlm/.env.local
+
+log
+RoboFactory/assets
+RoboFactory/release
+
+results
+# Local configuration, credentials, and virtual environments
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.venv/
+venv/
+.codex
+.agents/
+
+# Evaluation artifacts and downloaded model/data assets
+RoboFactory/eval_results_*.jsonl
+RoboFactory/eval_results_*_summary.json
+RoboFactory/eval_results_*.json
+RoboFactory/generated_release/
+*.ckpt
+*.pt
+*.pth
+*.safetensors
+*.zarr/
+releases/

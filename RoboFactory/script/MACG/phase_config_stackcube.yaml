@@ -1,0 +1,43 @@
+# Phase Configuration for ThreeRobotsStackCube task
+# GBR stacking order (bottom -> top): Green(cubeB) -> Blue(cubeA) -> Red(cubeC)
+#
+# Agent assignment:
+#   agent0 / panda-0  ->  cubeC (red)
+#   agent1 / panda-1  ->  cubeB (green)
+#   agent2 / panda-2  ->  cubeA (blue)
+
+phase_instructions:
+  1:
+    agent0: "Pick up the red cube."
+    agent1: "Pick up the green cube."
+    agent2: "Pick up the blue cube."
+  2:
+    agent0: "Place the red cube on the target."
+    agent1: "Wait for the other robots."
+    agent2: "Wait for the other robots."
+  3:
+    agent0: "Wait for the other robots."
+    agent1: "Place the green cube on the target."
+    agent2: "Wait for the other robots."
+  4:
+    agent0: "Wait for the other robots."
+    agent1: "Wait for the other robots."
+    agent2: "Place the blue cube on the target."
+
+
+# Phase schedule: maps high-level step ranges to phases
+phase_schedule:
+  1-5: 1          # Step 1: all agents grasp cubes          # Step 2: all agents lift cubes
+  5-9: 2        # Steps 3-5: green placed on target
+  9-15: 4        # Steps 6-8: blue stacked on green
+  15+: 3         # Steps 9+: red stacked on blue
+
+
+
+
+
+
+
+
+
+

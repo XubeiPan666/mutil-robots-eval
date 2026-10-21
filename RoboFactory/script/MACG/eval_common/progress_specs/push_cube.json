@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "task": "push_cube",
+  "selectors": {
+    "env_id": ["TwoArmsPushCube", "TwoArmsPushCube-v1"],
+    "status": ["two_arms_push_cube_12", "two_arms_push_cube_21"]
+  },
+  "defaults": {"debounce_samples": 2, "sync_window_seconds": 45.0},
+  "signals": {
+    "cubeA_pushed_to_goal_by_agent0": {"agent": "agent0"},
+    "cubeB_pushed_to_goal_by_agent1": {"agent": "agent1"}
+  },
+  "modes": {
+    "indomain": {
+      "phase_basenames": ["push_cubes_indomain"],
+      "milestones": [
+        {"id": "push_cubeA", "agent": "agent0", "predicate": "cubeA_pushed_to_goal_by_agent0"},
+        {"id": "push_cubeB", "agent": "agent1", "predicate": "cubeB_pushed_to_goal_by_agent1", "depends_on": ["push_cubeA"]}
+      ],
+      "order_constraints": [{"before": "push_cubeA", "after": "push_cubeB"}]
+    },
+    "reorder": {
+      "phase_basenames": ["push_cubes_reorder"],
+      "milestones": [
+        {"id": "push_cubeB", "agent": "agent1", "predicate": "cubeB_pushed_to_goal_by_agent1"},
+        {"id": "push_cubeA", "agent": "agent0", "predicate": "cubeA_pushed_to_goal_by_agent0", "depends_on": ["push_cubeB"]}
+      ],
+      "order_constraints": [{"before": "push_cubeB", "after": "push_cubeA"}]
+    },
+    "sync": {
+      "phase_basenames": ["push_cubes_sync"],
+      "milestones": [
+        {"id": "push_cubeA", "agent": "agent0", "predicate": "cubeA_pushed_to_goal_by_agent0", "sync_group": "sync_push"},
+        {"id": "push_cubeB", "agent": "agent1", "predicate": "cubeB_pushed_to_goal_by_agent1", "sync_group": "sync_push"}
+      ],
+      "sync_groups": [{"id": "sync_push", "members": ["push_cubeA", "push_cubeB"], "reject_early_release": false}],
+      "order_constraints": []
+    },
+    "syncreorder": {
+      "phase_basenames": ["push_cubes_syncreorder"],
+      "milestones": [
+        {"id": "push_cubeB", "agent": "agent1", "predicate": "cubeB_pushed_to_goal_by_agent1", "sync_group": "sync_push"},
+        {"id": "push_cubeA", "agent": "agent0", "predicate": "cubeA_pushed_to_goal_by_agent0", "sync_group": "sync_push"}
+      ],
+      "sync_groups": [{"id": "sync_push", "members": ["push_cubeA", "push_cubeB"], "reject_early_release": false}],
+      "order_constraints": []
+    }
+  }
+}

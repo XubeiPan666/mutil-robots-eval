@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "task": "place_object_bowl_cabinet",
+  "selectors": {
+    "env_id": ["TwoArmsPlaceObjectBowlCabinet", "TwoArmsPlaceObjectBowlCabinet-v1"],
+    "status": ["two_arms_place_object_bowl_cabinet"]
+  },
+  "defaults": {"debounce_samples": 2, "sync_window_seconds": 45.0},
+  "signals": {
+    "agent0_holds_bowl": {"agent": "agent0"},
+    "agent1_holds_drawer_handle": {"agent": "agent1"},
+    "drawer_opened_by_agent1": {"agent": "agent1"},
+    "bowl_in_drawer": {"agent": "agent0"}
+  },
+  "modes": {
+    "indomain": {
+      "phase_basenames": ["place_object_bowl_cabinet_indomain"],
+      "milestones": [
+        {"id": "open_drawer", "agent": "agent1", "predicate": {"all": ["agent1_holds_drawer_handle", "drawer_opened_by_agent1"]}},
+        {"id": "pick_bowl", "agent": "agent0", "predicate": "agent0_holds_bowl", "depends_on": ["open_drawer"]},
+        {"id": "place_bowl", "agent": "agent0", "predicate": "bowl_in_drawer", "depends_on": ["pick_bowl"]}
+      ],
+      "order_constraints": [
+        {"before": "open_drawer", "after": "pick_bowl"},
+        {"before": "pick_bowl", "after": "place_bowl"}
+      ]
+    },
+    "sync": {
+      "phase_basenames": ["place_object_bowl_cabinet_sync"],
+      "milestones": [
+        {"id": "pick_bowl", "agent": "agent0", "predicate": "agent0_holds_bowl", "hold_signal": "agent0_holds_bowl", "sync_group": "sync_open_pick"},
+        {"id": "open_drawer", "agent": "agent1", "predicate": {"all": ["agent1_holds_drawer_handle", "drawer_opened_by_agent1"]}, "hold_signal": "agent1_holds_drawer_handle", "sync_group": "sync_open_pick"},
+        {"id": "place_bowl", "agent": "agent0", "predicate": "bowl_in_drawer", "depends_on": ["pick_bowl", "open_drawer"]}
+      ],
+      "sync_groups": [{"id": "sync_open_pick", "members": ["pick_bowl", "open_drawer"], "reject_early_release": true}],
+      "order_constraints": [
+        {"before": "pick_bowl", "after": "place_bowl"},
+        {"before": "open_drawer", "after": "place_bowl"}
+      ]
+    }
+  }
+}

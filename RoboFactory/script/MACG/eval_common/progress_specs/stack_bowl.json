@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "task": "stack_bowl",
+  "selectors": {
+    "env_id": ["TwoArmsStackBowl", "TwoArmsStackBowl-v1"],
+    "status": ["two_arms_stack_bowl_12", "two_arms_stack_bowl_21"]
+  },
+  "defaults": {"debounce_samples": 2, "sync_window_seconds": 45.0},
+  "signals": {
+    "agent0_holds_bowlA": {"agent": "agent0"},
+    "agent1_holds_bowlB": {"agent": "agent1"},
+    "bowlA_placed_on_target": {"agent": "agent0"},
+    "bowlB_placed_on_target": {"agent": "agent1"},
+    "bowlA_on_bowlB": {"agent": "agent0"},
+    "bowlB_on_bowlA": {"agent": "agent1"}
+  },
+  "modes": {
+    "indomain": {
+      "phase_basenames": ["stack_bowls_indomain"],
+      "milestones": [
+        {"id": "pick_bowlA", "agent": "agent0", "predicate": "agent0_holds_bowlA"},
+        {"id": "place_bowlA", "agent": "agent0", "predicate": "bowlA_placed_on_target", "depends_on": ["pick_bowlA"]},
+        {"id": "pick_bowlB", "agent": "agent1", "predicate": "agent1_holds_bowlB", "depends_on": ["place_bowlA"]},
+        {"id": "stack_bowlB", "agent": "agent1", "predicate": "bowlB_on_bowlA", "depends_on": ["pick_bowlB"]}
+      ],
+      "order_constraints": [
+        {"before": "pick_bowlA", "after": "place_bowlA"},
+        {"before": "place_bowlA", "after": "pick_bowlB"},
+        {"before": "pick_bowlB", "after": "stack_bowlB"}
+      ]
+    },
+    "reorder": {
+      "phase_basenames": ["stack_bowls_reorder"],
+      "milestones": [
+        {"id": "pick_bowlB", "agent": "agent1", "predicate": "agent1_holds_bowlB"},
+        {"id": "place_bowlB", "agent": "agent1", "predicate": "bowlB_placed_on_target", "depends_on": ["pick_bowlB"]},
+        {"id": "pick_bowlA", "agent": "agent0", "predicate": "agent0_holds_bowlA", "depends_on": ["place_bowlB"]},
+        {"id": "stack_bowlA", "agent": "agent0", "predicate": "bowlA_on_bowlB", "depends_on": ["pick_bowlA"]}
+      ],
+      "order_constraints": [
+        {"before": "pick_bowlB", "after": "place_bowlB"},
+        {"before": "place_bowlB", "after": "pick_bowlA"},
+        {"before": "pick_bowlA", "after": "stack_bowlA"}
+      ]
+    },
+    "sync": {
+      "phase_basenames": ["stack_bowls_sync"],
+      "milestones": [
+        {"id": "pick_bowlA", "agent": "agent0", "predicate": "agent0_holds_bowlA", "hold_signal": "agent0_holds_bowlA", "sync_group": "sync_pick"},
+        {"id": "pick_bowlB", "agent": "agent1", "predicate": "agent1_holds_bowlB", "hold_signal": "agent1_holds_bowlB", "sync_group": "sync_pick"},
+        {"id": "place_bowlA", "agent": "agent0", "predicate": "bowlA_placed_on_target", "depends_on": ["pick_bowlA", "pick_bowlB"]},
+        {"id": "stack_bowlB", "agent": "agent1", "predicate": "bowlB_on_bowlA", "depends_on": ["place_bowlA"]}
+      ],
+      "sync_groups": [{"id": "sync_pick", "members": ["pick_bowlA", "pick_bowlB"], "reject_early_release": true}],
+      "order_constraints": [
+        {"before": "pick_bowlA", "after": "place_bowlA"},
+        {"before": "pick_bowlB", "after": "place_bowlA"},
+        {"before": "place_bowlA", "after": "stack_bowlB"}
+      ]
+    },
+    "syncreorder": {
+      "phase_basenames": ["stack_bowls_syncreorder"],
+      "milestones": [
+        {"id": "pick_bowlB", "agent": "agent1", "predicate": "agent1_holds_bowlB", "hold_signal": "agent1_holds_bowlB", "sync_group": "sync_pick"},
+        {"id": "pick_bowlA", "agent": "agent0", "predicate": "agent0_holds_bowlA", "hold_signal": "agent0_holds_bowlA", "sync_group": "sync_pick"},
+        {"id": "place_bowlB", "agent": "agent1", "predicate": "bowlB_placed_on_target", "depends_on": ["pick_bowlA", "pick_bowlB"]},
+        {"id": "stack_bowlA", "agent": "agent0", "predicate": "bowlA_on_bowlB", "depends_on": ["place_bowlB"]}
+      ],
+      "sync_groups": [{"id": "sync_pick", "members": ["pick_bowlA", "pick_bowlB"], "reject_early_release": true}],
+      "order_constraints": [
+        {"before": "pick_bowlA", "after": "place_bowlB"},
+        {"before": "pick_bowlB", "after": "place_bowlB"},
+        {"before": "place_bowlB", "after": "stack_bowlA"}
+      ]
+    }
+  }
+}

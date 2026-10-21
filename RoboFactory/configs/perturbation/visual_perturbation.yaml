@@ -1,0 +1,17 @@
+domain_randomization:
+  # --- Background / tablecloth texture ---
+  random_background: true
+  background_texture_root: release/perturbation_assets_v1/perturbation_assets_v1/background_texture
+  texture_type: unseen          # "seen" for in-domain textures, "unseen" for OOD
+  clean_background_rate: 0.02   # probability of using the original clean background
+
+  # --- Distractor objects on the table ---
+  cluttered_table: true
+  distractor_objects_root: release/perturbation_assets_v1/perturbation_assets_v1/distractors
+  num_distractors: 5
+  distractor_xlim: [-0.05, 0.65]
+  distractor_ylim: [-0.7, 0.7]
+  distractor_min_dist: 0.25
+
+  # --- Lighting randomization ---
+  random_light: true

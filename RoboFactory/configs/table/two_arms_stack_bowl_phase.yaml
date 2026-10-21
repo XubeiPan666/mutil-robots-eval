@@ -1,0 +1,29 @@
+# Phase configuration for two arms stack bowl task
+# This file defines the instructions for each phase and the schedule mapping steps to phases
+
+phase_instructions:
+  1:
+    agent0: "Grasp the red bowl."
+    agent1: "Grasp the blue bowl."
+  2:
+    agent0: "Lift the red bowl."
+    agent1: "Lift the blue bowl."
+  3:
+    agent0: "Move the red bowl to the tray."
+    agent1: "Wait for the other robot."
+  4:
+    agent0: "Wait for the other robot."
+    agent1: "Stack the blue bowl on top of the red bowl."
+
+# Phase schedule: maps step numbers to phase numbers
+# Format: "step:phase,step:phase" or "step-step:phase"
+# Use "+" for all remaining steps (e.g., "6+:4" means step 6 and beyond use phase 4)
+phase_schedule: "1:1,2:2,3-5:3,6+:4"
+
+# Alternative format (will be converted automatically):
+# phase_schedule:
+#   1: 1
+#   2: 2
+#   3-5: 3
+#   6+: 4
+

@@ -1,0 +1,123 @@
+[
+    {
+        "traj_idx": 0,
+        "agent_idx": 0,
+        "start_timestep": 0,
+        "end_timestep": 309
+    },
+    {
+        "traj_idx": 1,
+        "agent_idx": 0,
+        "start_timestep": 0,
+        "end_timestep": 310
+    },
+    {
+        "traj_idx": 2,
+        "agent_idx": 0,
+        "start_timestep": 0,
+        "end_timestep": 317
+    },
+    {
+        "traj_idx": 3,
+        "agent_idx": 0,
+        "start_timestep": 0,
+        "end_timestep": 311
+    },
+    {
+        "traj_idx": 4,
+        "agent_idx": 0,
+        "start_timestep": 0,
+        "end_timestep": 305
+    },
+    {
+        "traj_idx": 5,
+        "agent_idx": 0,
+        "start_timestep": 0,
+        "end_timestep": 307
+    },
+    {
+        "traj_idx": 6,
+        "agent_idx": 0,
+        "start_timestep": 0,
+        "end_timestep": 314
+    },
+    {
+        "traj_idx": 7,
+        "agent_idx": 0,
+        "start_timestep": 0,
+        "end_timestep": 309
+    },
+    {
+        "traj_idx": 8,
+        "agent_idx": 0,
+        "start_timestep": 0,
+        "end_timestep": 294
+    },
+    {
+        "traj_idx": 9,
+        "agent_idx": 0,
+        "start_timestep": 0,
+        "end_timestep": 298
+    },
+    {
+        "traj_idx": 10,
+        "agent_idx": 0,
+        "start_timestep": 0,
+        "end_timestep": 311
+    },
+    {
+        "traj_idx": 11,
+        "agent_idx": 0,
+        "start_timestep": 0,
+        "end_timestep": 314
+    },
+    {
+        "traj_idx": 12,
+        "agent_idx": 0,
+        "start_timestep": 0,
+        "end_timestep": 311
+    },
+    {
+        "traj_idx": 13,
+        "agent_idx": 0,
+        "start_timestep": 0,
+        "end_timestep": 307
+    },
+    {
+        "traj_idx": 14,
+        "agent_idx": 0,
+        "start_timestep": 0,
+        "end_timestep": 306
+    },
+    {
+        "traj_idx": 15,
+        "agent_idx": 0,
+        "start_timestep": 0,
+        "end_timestep": 296
+    },
+    {
+        "traj_idx": 16,
+        "agent_idx": 0,
+        "start_timestep": 0,
+        "end_timestep": 314
+    },
+    {
+        "traj_idx": 17,
+        "agent_idx": 0,
+        "start_timestep": 0,
+        "end_timestep": 309
+    },
+    {
+        "traj_idx": 18,
+        "agent_idx": 0,
+        "start_timestep": 0,
+        "end_timestep": 315
+    },
+    {
+        "traj_idx": 19,
+        "agent_idx": 0,
+        "start_timestep": 0,
+        "end_timestep": 306
+    }
+]
+

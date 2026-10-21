@@ -1,0 +1,2 @@
+bash policy/Diffusion-Policy/eval.sh configs/table/one_arm_place_object.yaml 20 300 1 PICK_CAR_aug_relative_clean hhh 0
+bash policy/Diffusion-Policy/eval.sh configs/table/one_arm_place_object.yaml 20 300 1 PICK_CAR_aug_relative_perturb hhh 1

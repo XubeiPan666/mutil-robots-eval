@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "task": "place_can_basket",
+  "selectors": {
+    "env_id": ["TwoArmsPlaceCanBasket", "TwoArmsPlaceCanBasket-v1"],
+    "status": ["two_arms_place_can_basket"]
+  },
+  "defaults": {"debounce_samples": 2, "sync_window_seconds": 45.0},
+  "signals": {
+    "agent0_holds_can": {"agent": "agent0"},
+    "agent1_holds_basket": {"agent": "agent1"},
+    "can_in_basket": {"agent": "agent0"}
+  },
+  "modes": {
+    "indomain": {
+      "phase_basenames": ["place_can_basket_indomain"],
+      "milestones": [
+        {"id": "pick_basket", "agent": "agent1", "predicate": "agent1_holds_basket"},
+        {"id": "pick_can", "agent": "agent0", "predicate": "agent0_holds_can", "depends_on": ["pick_basket"]},
+        {"id": "place_can_in_basket", "agent": "agent0", "predicate": "can_in_basket", "depends_on": ["pick_can"]}
+      ],
+      "order_constraints": [
+        {"before": "pick_basket", "after": "pick_can"},
+        {"before": "pick_can", "after": "place_can_in_basket"}
+      ]
+    },
+    "sync": {
+      "phase_basenames": ["place_can_basket_sync"],
+      "milestones": [
+        {"id": "pick_can", "agent": "agent0", "predicate": "agent0_holds_can", "hold_signal": "agent0_holds_can", "sync_group": "sync_pick"},
+        {"id": "pick_basket", "agent": "agent1", "predicate": "agent1_holds_basket", "hold_signal": "agent1_holds_basket", "sync_group": "sync_pick"},
+        {"id": "place_can_in_basket", "agent": "agent0", "predicate": "can_in_basket", "depends_on": ["pick_can", "pick_basket"]}
+      ],
+      "sync_groups": [{"id": "sync_pick", "members": ["pick_can", "pick_basket"], "reject_early_release": true}],
+      "order_constraints": [
+        {"before": "pick_can", "after": "place_can_in_basket"},
+        {"before": "pick_basket", "after": "place_can_in_basket"}
+      ]
+    }
+  }
+}

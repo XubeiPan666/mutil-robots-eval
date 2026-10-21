@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "task": "handover_bottles",
+  "selectors": {
+    "env_id": ["TwoArmsHandoverBottles", "TwoArmsHandoverBottle"],
+    "status": ["two_arms_handover_bottles_12", "two_arms_handover_bottles_21"]
+  },
+  "defaults": {"debounce_samples": 2, "sync_window_seconds": 45.0},
+  "signals": {
+    "agent0_holds_bottle1": {"agent": "agent0"},
+    "agent1_holds_bottle1": {"agent": "agent1"},
+    "agent0_holds_bottle2": {"agent": "agent0"},
+    "agent1_holds_bottle2": {"agent": "agent1"},
+    "bottle1_handed_to_agent1": {"agent": "agent1"},
+    "bottle2_handed_to_agent1": {"agent": "agent1"},
+    "bottle1_in_basket": {"agent": "agent1"},
+    "bottle2_in_basket": {"agent": "agent1"}
+  },
+  "modes": {
+    "indomain": {
+      "phase_basenames": ["handover_bottles_indomain"],
+      "milestones": [
+        {"id": "pick_bottle1", "agent": "agent0", "predicate": "agent0_holds_bottle1"},
+        {"id": "handover_bottle1", "agent": "agent1", "predicate": "bottle1_handed_to_agent1", "depends_on": ["pick_bottle1"]},
+        {"id": "place_bottle1", "agent": "agent1", "predicate": "bottle1_in_basket", "depends_on": ["handover_bottle1"]},
+        {"id": "pick_bottle2", "agent": "agent0", "predicate": "agent0_holds_bottle2", "depends_on": ["place_bottle1"]},
+        {"id": "handover_bottle2", "agent": "agent1", "predicate": "bottle2_handed_to_agent1", "depends_on": ["pick_bottle2"]},
+        {"id": "place_bottle2", "agent": "agent1", "predicate": "bottle2_in_basket", "depends_on": ["handover_bottle2"]}
+      ],
+      "order_constraints": [
+        {"before": "pick_bottle1", "after": "handover_bottle1"},
+        {"before": "handover_bottle1", "after": "place_bottle1"},
+        {"before": "place_bottle1", "after": "pick_bottle2"},
+        {"before": "pick_bottle2", "after": "handover_bottle2"},
+        {"before": "handover_bottle2", "after": "place_bottle2"}
+      ]
+    },
+    "reorder": {
+      "phase_basenames": ["handover_bottles_reorder"],
+      "milestones": [
+        {"id": "pick_bottle2", "agent": "agent0", "predicate": "agent0_holds_bottle2"},
+        {"id": "handover_bottle2", "agent": "agent1", "predicate": "bottle2_handed_to_agent1", "depends_on": ["pick_bottle2"]},
+        {"id": "place_bottle2", "agent": "agent1", "predicate": "bottle2_in_basket", "depends_on": ["handover_bottle2"]},
+        {"id": "pick_bottle1", "agent": "agent0", "predicate": "agent0_holds_bottle1", "depends_on": ["place_bottle2"]},
+        {"id": "handover_bottle1", "agent": "agent1", "predicate": "bottle1_handed_to_agent1", "depends_on": ["pick_bottle1"]},
+        {"id": "place_bottle1", "agent": "agent1", "predicate": "bottle1_in_basket", "depends_on": ["handover_bottle1"]}
+      ],
+      "order_constraints": [
+        {"before": "pick_bottle2", "after": "handover_bottle2"},
+        {"before": "handover_bottle2", "after": "place_bottle2"},
+        {"before": "place_bottle2", "after": "pick_bottle1"},
+        {"before": "pick_bottle1", "after": "handover_bottle1"},
+        {"before": "handover_bottle1", "after": "place_bottle1"}
+      ]
+    }
+  }
+}

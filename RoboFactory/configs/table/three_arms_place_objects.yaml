@@ -1,0 +1,290 @@
+# configuration for objects and agents, add scene as well
+# Task: 3 robot arms sequentially pick up different objects and place them into a tray
+# Objects: can (071), tea-box (112), hamburg (006) - 3 diverse, easy-to-grasp objects
+task_name: ThreeArmsPlaceObjects
+scene:
+  name: Table
+  env:
+    floor_width: 100
+  # primitives:
+  #   - name: region_1
+  #     builder: utils.building.actors.build_square_region
+  #     params:
+  #       half_size: 0.1
+  #       thickness: 0.0001
+  #       color: [1., 0., 0., 0.8]
+  #       name: region_1
+  #       label_number: 1
+  #       add_collision: False
+  #       body_type: kinematic
+  #       initial_pose:
+  #         p: [0., -0.4, 0.]
+  #     pos:
+  #       ppos:
+  #         p: [0., -0.4, 0.]
+  #       qpos: [1., 0., 0., 0.]
+  #       randp_scale: [0., 0., 0.]
+  #       randq_scale: [0., 0., 0., 0.]
+    
+  #   - name: region_2
+  #     builder: utils.building.actors.build_square_region
+  #     params:
+  #       half_size: 0.1
+  #       thickness: 0.0001
+  #       color: [0., 1., 0., 0.8]
+  #       name: region_2
+  #       label_number: 2
+  #       add_collision: False
+  #       body_type: kinematic
+  #       initial_pose:
+  #         p: [0., 0., 0.]
+  #     pos:
+  #       ppos:
+  #         p: [0., 0., 0.]
+  #       qpos: [1., 0., 0., 0.]
+  #       randp_scale: [0., 0., 0.]
+  #       randq_scale: [0., 0., 0., 0.]
+    
+  #   - name: region_3
+  #     builder: utils.building.actors.build_square_region
+  #     params:
+  #       half_size: 0.1
+  #       thickness: 0.0001
+  #       color: [0., 0., 1., 0.8]
+  #       name: region_3
+  #       label_number: 3
+  #       add_collision: False
+  #       body_type: kinematic
+  #       initial_pose:
+  #         p: [0., 0.4, 0.]
+  #     pos:
+  #       ppos:
+  #         p: [0., 0.4, 0.]
+  #       qpos: [1., 0., 0., 0.]
+  #       randp_scale: [0., 0., 0.]
+  #       randq_scale: [0., 0., 0., 0.]
+
+  assets: 
+    - name: table
+      file_path: assets/scenes/table/table.glb
+      collision:
+        type: box
+        pos:
+          p: [0, 0, 0.45982145]
+          half_size: [3.0225, 1.51125, 0.45982145]
+      pos: 
+        ppos:
+          p: [-0.12, 0., -0.9196429]
+          q: [0., 0., 1.5707963268]
+        randp_scale: [0., 0., 0.]
+        randq_scale: [0., 0., 0., 0.]
+      scale: [4.375, 4.375, 1.75]
+    
+objects:
+  # Object 1: Can (071_can) - cylindrical, near region_1, picked by agent0
+  # Size at scale 0.05: 7.1cm x 9.6cm x 7.1cm
+  - name: can1
+    file_path: release/perturbation_assets_v1/perturbation_assets_v1/distractors/071_can/visual/base0.glb
+    annotation_path: release/perturbation_assets_v1/perturbation_assets_v1/distractors/071_can/model_data0.json
+    material: 
+      type: sapien.pysapien.physx.PhysxMaterial
+      params:
+        static_friction: 0.5
+        dynamic_friction: 0.5
+        restitution: 0.
+    visual:
+      filename: release/perturbation_assets_v1/perturbation_assets_v1/distractors/071_can/visual/base0.glb
+      scale: [0.05, 0.05, 0.05]
+    collision:
+      type: convex
+      filename: release/perturbation_assets_v1/perturbation_assets_v1/distractors/071_can/collision/base0.glb
+      scale: [0.05, 0.05, 0.05]
+    pos:
+      ppos:
+        p: [0.01, -0.4, 0.]
+      qpos: [0.5, 0.5, 0.5, 0.5]
+      randp_scale: [[0.03, 0.03, 0.], [0.03, -0.03, 0.]]
+      randq_scale: [0., 0., 0., 0.]
+    mass_params:
+      mass: 0.05
+      cmass_local_pose: [0., 0., 0.]
+      inertia: [0.1, 0.1, 0.1]
+
+  # Object 2: Tea Box (112_tea-box) - rectangular box, near region_2, picked by agent1
+  # Size at scale 0.04: 7.7cm x 5.8cm x 5.8cm
+  - name: teabox2
+    file_path: release/perturbation_assets_v1/perturbation_assets_v1/distractors/112_tea-box/visual/base0.glb
+    annotation_path: release/perturbation_assets_v1/perturbation_assets_v1/distractors/112_tea-box/model_data0.json
+    material: 
+      type: sapien.pysapien.physx.PhysxMaterial
+      params:
+        static_friction: 0.5
+        dynamic_friction: 0.5
+        restitution: 0.
+    visual:
+      filename: release/perturbation_assets_v1/perturbation_assets_v1/distractors/112_tea-box/visual/base0.glb
+      scale: [0.04, 0.04, 0.04]
+    collision:
+      type: convex
+      filename: release/perturbation_assets_v1/perturbation_assets_v1/distractors/112_tea-box/collision/base0.glb
+      scale: [0.04, 0.04, 0.04]
+    pos:
+      ppos:
+        p: [-0.01, 0., 0.]
+      qpos: [0.5, 0.5, 0.5, 0.5]
+      randp_scale: [[-0.03, 0.03, 0.], [-0.03, -0.03, 0.]]
+      randq_scale: [0., 0., 0., 0.]
+    mass_params:
+      mass: 0.05
+      cmass_local_pose: [0., 0., 0.]
+      inertia: [0.1, 0.1, 0.1]
+
+  # Object 3: Hamburg (006_hamburg) - flat round shape, near region_3, picked by agent2
+  # Size at scale 0.035: 7.2cm x 2.5cm x 6.7cm
+  - name: hamburg3
+    file_path: release/perturbation_assets_v1/perturbation_assets_v1/distractors/006_hamburg/visual/base0.glb
+    annotation_path: release/perturbation_assets_v1/perturbation_assets_v1/distractors/006_hamburg/model_data0.json
+    material: 
+      type: sapien.pysapien.physx.PhysxMaterial
+      params:
+        static_friction: 0.5
+        dynamic_friction: 0.5
+        restitution: 0.
+    visual:
+      filename: release/perturbation_assets_v1/perturbation_assets_v1/distractors/006_hamburg/visual/base0.glb
+      scale: [0.035, 0.035, 0.035]
+    collision:
+      type: convex
+      filename: release/perturbation_assets_v1/perturbation_assets_v1/distractors/006_hamburg/collision/base0.glb
+      scale: [0.035, 0.035, 0.035]
+    pos:
+      ppos:
+        p: [0.01, 0.4, 0.]
+      qpos: [0.5, 0.5, 0.5, 0.5]
+      randp_scale: [[0.03, 0.03, 0.], [0.03, -0.03, 0.]]
+      randq_scale: [0., 0., 0., 0.]
+    mass_params:
+      mass: 0.05
+      cmass_local_pose: [0., 0., 0.]
+      inertia: [0.1, 0.1, 0.1]
+
+  # Tray (target container)
+  - name: tray
+    file_path: release/perturbation_assets_v1/perturbation_assets_v1/distractors/008_tray/visual/base0.glb
+    annotation_path: release/perturbation_assets_v1/perturbation_assets_v1/distractors/008_tray/model_data0.json
+    material: 
+      type: sapien.pysapien.physx.PhysxMaterial
+      params:
+        static_friction: 0.5
+        dynamic_friction: 0.5
+        restitution: 0.
+    visual:
+      filename: release/perturbation_assets_v1/perturbation_assets_v1/distractors/008_tray/visual/base0.glb
+      scale: [0.16, 0.16, 0.16]
+    collision:
+      type: multiple_convex
+      filename: release/perturbation_assets_v1/perturbation_assets_v1/distractors/008_tray/collision/base0.glb
+      scale: [0.16, 0.16, 0.16]
+    body_type: static
+    pos:
+      ppos:
+        p: [-0.2, 0., 0.]
+      qpos: [0.5, 0.5, 0.5, 0.5]
+      randq_scale: [0., 0., 0., 0.]
+
+agents:
+  -
+    robot_uid: panda-0
+    pos:
+      ppos:
+        p: [-0.6, -0.4, 0.]
+        q: [0., 0., 0]
+      # qpos: [0., 0., 0., -2.7, 0., 2.3561944902, 0.7853981634, 0.04, 0.04]
+      qpos: [0., 0., 0., -2.7, 0., 2.8, 0.7853981634, 0.04, 0.04]
+      randp_scale: [0., 0., 0.]
+      randq_scale: [0., 0., 0., 0., 0., 0., 0., 0., 0.]
+  -
+    robot_uid: panda-1
+    pos:
+      ppos:
+        p: [0.55, 0., 0.]
+        q: [0., 0., 3.1415926536]
+      # qpos: [0., 0., 0., -2.7, 0., 2.3561944902, 0.7853981634, 0.04, 0.04]
+      qpos: [0., 0., 0., -2.7, 0., 2.8, 0.7853981634, 0.04, 0.04]
+      randp_scale: [0., 0., 0.]
+      randq_scale: [0., 0., 0., 0., 0., 0., 0., 0., 0.]
+  -
+    robot_uid: panda-2
+    pos:
+      ppos:
+        p: [-0.6, 0.4, 0.]
+        q: [0., 0., 0]
+      # qpos: [0., 0., 0., -2.7, 0., 2.3561944902, 0.7853981634, 0.04, 0.04]
+      qpos: [0., 0., 0., -2.7, 0., 2.8, 0.7853981634, 0.04, 0.04]
+      randp_scale: [0., 0., 0.]
+      randq_scale: [0., 0., 0., 0., 0., 0., 0., 0., 0.]
+
+cameras:
+  sensor:
+    - 
+      uid: wrist_camera_agent0
+      pose:
+        type: pose
+        params: [[0.05, 0.0, -0.06], [0.0, 0.675590, 0.0, 0.737277]]
+      width: 224
+      height: 224
+      fov: 2.0943951024
+      near: 0.01
+      far: 10
+    - 
+      uid: wrist_camera_agent1
+      pose:
+        type: pose
+        params: [[0.05, 0.0, -0.06], [0.0, 0.675590, 0.0, 0.737277]]
+      width: 224
+      height: 224
+      fov: 2.0943951024
+      near: 0.01
+      far: 10
+    - 
+      uid: wrist_camera_agent2
+      pose:
+        type: pose
+        params: [[0.05, 0.0, -0.06], [0.0, 0.675590, 0.0, 0.737277]]
+      width: 224
+      height: 224
+      fov: 2.0943951024
+      near: 0.01
+      far: 10
+    # - 
+    #   uid: head_camera_global
+    #   pose:
+    #     type: look_at
+    #     params: [[0.1, 0., 0.5], [-0.1, 0, 0.2]]
+    #   width: 224
+    #   height: 224
+    #   fov: 2.0943951024
+    #   near: 0.1
+    #   far: 10
+    - 
+      uid: head_camera_global
+      pose:
+        type: look_at
+        params: [[-0.3, 0., 0.5], [0., 0, 0.2]]
+      width: 224
+      height: 224
+      fov: 2.0943951024
+      near: 0.01
+      far: 10
+  human_render:
+    - 
+      uid: render_camera
+      pose:
+        type: pose
+        params: [[0.868396, 1.09695, 0.703708], [0.454605, 0.234498, 0.125406, -0.85007]]
+      width: 512
+      height: 512
+      fov: 1
+      near: 0.01
+      far: 100
+

@@ -1,0 +1,37 @@
+# Phase Configuration for TwoArmsPlaceCanBasket - Sync (rule-based)
+# Both agents move simultaneously: agent0 grabs can while agent1 grabs basket,
+# then agent0 places can into the basket agent1 is holding
+#
+# State machine:
+#   Phase 1 (both pick) --[both_grip]--> Phase 2 (agent0 place can into basket)
+#   Phase 2 --[agent0_release]--> Phase 3 (agent0 recover)
+
+mode: "rule_based"
+initial_phase: 1
+gripper_threshold: 0.03
+min_steps_per_phase: 2
+
+phase_instructions:
+  1:
+    agent0: "Pick up the can."
+    agent1: "Pick up the basket."
+  2:
+    agent0: "Place the can into the basket."
+    agent1: "Hold the basket in position."
+  3:
+    agent0: "Recover."
+    agent1: "Hold the basket in position."
+
+transitions:
+  - from: 1
+    to: 2
+    condition: "both_grip"
+  - from: 2
+    to: 3
+    condition: "agent0_release"
+
+# Timestep-based fallback schedule
+phase_schedule:
+  1-4: 1
+  5-9: 2
+  10+: 3

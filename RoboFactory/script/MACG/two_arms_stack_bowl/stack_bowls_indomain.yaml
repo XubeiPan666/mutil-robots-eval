@@ -1,0 +1,52 @@
+# Phase Configuration for TwoArmsStackBowl - In-domain (rule-based)
+# Sequential: agent0 pick/place first, then agent1 pick/place
+#
+# State machine:
+#   Phase 1 (agent0 pick) --[agent0_grip]--> Phase 2 (agent0 place)
+#   Phase 2 --[agent0_release]--> Phase 3 (agent1 pick)
+#   Phase 3 --[agent1_grip]--> Phase 4 (agent1 place)
+#   Phase 4 --[agent1_release]--> Phase 5 (recover)
+
+mode: "rule_based"
+initial_phase: 1
+gripper_threshold: 0.02
+min_steps_per_phase: 2
+
+phase_instructions:
+  1:
+    agent0: "Pick up the bowl."
+    agent1: "Wait for the other robots."
+  2:
+    agent0: "Place the bowl on the plate on the left."
+    agent1: "Wait for the other robots."
+  3:
+    agent0: "Recover."
+    agent1: "Pick up the bowl."
+  4:
+    agent0: "Wait for the other robots."
+    agent1: "Place the bowl on the plate on the right."
+  5:
+    agent0: "Wait for the other robots."
+    agent1: "Recover."
+
+transitions:
+  - from: 1
+    to: 2
+    condition: "agent0_grip"
+  - from: 2
+    to: 3
+    condition: "agent0_release"
+  - from: 3
+    to: 4
+    condition: "agent1_grip"
+  - from: 4
+    to: 5
+    condition: "agent1_release"
+
+# Timestep-based fallback schedule
+phase_schedule:
+  1-2: 1
+  3-6: 2
+  6-8: 3
+  8-11: 4
+  11+: 5
