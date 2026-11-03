@@ -20,7 +20,8 @@ command -v setsid >/dev/null
 
 export RUN_DIR="$PROJECT_WS/eval_runs/official_${SLURM_JOB_ID}"
 mkdir -p "$RUN_DIR"
-cp "$EVAL_SOURCE/scripts/slurm/eval_official.sh" "$EVAL_SOURCE/scripts/slurm/serve_warmed.py" "$RUN_DIR/"
+cp "$EVAL_SOURCE/scripts/slurm/eval_official.sh" "$EVAL_SOURCE/scripts/slurm/serve_warmed.py" \
+    "$EVAL_SOURCE/scripts/slurm/wait_for_policy.py" "$RUN_DIR/"
 export VLA_SERVER_URL=http://127.0.0.1:20011
 export NO_PROXY=127.0.0.1,localhost
 export no_proxy="$NO_PROXY"
@@ -97,36 +98,20 @@ bash "$EVAL_RUN/scripts/evaluate.sh" "$@" --server-url "$VLA_SERVER_URL" --dry-r
     export PYTHONNOUSERSITE=1
     export XLA_PYTHON_CLIENT_MEM_FRACTION=0.75
     cd "$TRAIN_ROOT"
-    exec setsid uv run --frozen --with flask "$RUN_DIR/serve_warmed.py" \
+    exec setsid uv run --project "$TRAIN_ROOT" --frozen --with flask python "$RUN_DIR/serve_warmed.py" \
         --config aevla_pi05_skill_lora_two_arms_multitask \
-        --checkpoint-dir "$CHECKPOINT_DIR" --host 127.0.0.1 --port 20011
+        --checkpoint-dir "$CHECKPOINT_DIR" --host 127.0.0.1 --port 0
 ) > "$RUN_DIR/server.log" 2>&1 &
 SERVER_PID=$!
 export SERVER_PID
 
 # The health endpoint is exposed only after model loading AND warmup finish.
-python - <<'PY'
-import os
-import time
-import requests
-
-session = requests.Session()
-session.trust_env = False
-deadline = time.monotonic() + 1800
-while True:
-    os.kill(int(os.environ["SERVER_PID"]), 0)
-    try:
-        reply = session.get(os.environ["VLA_SERVER_URL"] + "/health", timeout=5)
-        reply.raise_for_status()
-        if reply.json().get("model_loaded") is True:
-            break
-    except (requests.RequestException, ValueError):
-        pass
-    if time.monotonic() >= deadline:
-        raise TimeoutError("Model startup/warmup exceeded 1800 seconds; inspect server.log")
-    time.sleep(3)
-print("Model ready after warmup", flush=True)
-PY
+python "$RUN_DIR/wait_for_policy.py" --pid "$SERVER_PID" --run-dir "$RUN_DIR" \
+    > "$RUN_DIR/server_url.txt"
+export VLA_SERVER_URL="$(cat "$RUN_DIR/server_url.txt")"
+echo "Model ready after warmup: $VLA_SERVER_URL"
+bash "$EVAL_RUN/scripts/evaluate.sh" "$@" --server-url "$VLA_SERVER_URL" --dry-run \
+    > "$RUN_DIR/official_commands.txt"
 
 echo "Starting official evaluator: $(date -Is)"
 bash "$EVAL_RUN/scripts/evaluate.sh" "$@" --server-url "$VLA_SERVER_URL" \

@@ -97,6 +97,25 @@ The official client still uses its original request timeout. New input signature
 may trigger additional compilation; warmup does not guarantee every task avoids
 timeouts. Model startup/warmup readiness has an external 1800-second limit.
 
+The model command explicitly selects the training uv project and its Python
+interpreter. The external wrapper adds that checkout's root, src, and client src
+directories to its own import path; it does not change the simulator's imports.
+For an import-only check (no model or GPU allocation), after loading load_env.sh:
+
+```bash
+export TRAIN_ROOT="$PROJECT_WS/code/mutil-robots"
+cd "$TRAIN_ROOT"
+uv run --project "$TRAIN_ROOT" --frozen --with flask python \
+  "$PROJECT_WS/code/mutil-robots-eval/scripts/slurm/serve_warmed.py" --check-imports
+```
+
+After warmup, Werkzeug binds a free loopback port using port 0 and writes its PID
+and actual URL atomically to server_ready.json. The launcher passes this URL to
+the unchanged official evaluator; it no longer uses a fixed 20011 port for actual
+rollouts. This allows separate GPU jobs on the same node without port collisions.
+wait_for_policy.py checks the bound endpoint and reports server.log on startup
+failure instead of only raising ProcessLookupError.
+
 This launcher preserves the checked-out evaluation protocol. It does not guarantee
 the same hardware, driver or complete dependency set as the authors, bitwise
 identical results, or paper reproduction. Record checkpoint, code and package
@@ -104,6 +123,11 @@ versions when comparing runs. Do not update dependencies merely to launch a job.
 
 ## Validation
 
-Local Bash/Python syntax checks and the official task-selection dry-run passed.
-The complete Slurm launcher has not yet been executed on the cluster. The model
-HTTP service and one simulator episode were previously validated interactively.
+The first cluster attempts (4902453 and 4903242) both failed before model loading:
+the external wrapper could import deploy_minimal but not the src-layout openpi
+package. The changes above address that observed import failure, add dynamic port
+allocation, and improve startup diagnostics. They still need a new cluster run.
+Regression tests cover external src-layout imports, restoring the warmup RNG,
+two distinct loopback endpoints, and reporting the original startup error.
+No scoring code or task timeout is changed. The model HTTP service and one
+simulator episode were previously validated interactively.
