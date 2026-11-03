@@ -92,6 +92,8 @@ done
 # Validate the exact official task selection before loading the model.
 bash "$EVAL_RUN/scripts/evaluate.sh" "$@" --server-url "$VLA_SERVER_URL" --dry-run \
     > "$RUN_DIR/official_commands.txt"
+python "$EVAL_SOURCE/scripts/slurm/check_scene_assets.py" --repo "$EVAL_RUN" "$@" \
+    > "$RUN_DIR/scene_assets_check.json"
 
 (
     source "$PROJECT_WS/load_env.sh"

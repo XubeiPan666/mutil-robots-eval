@@ -22,6 +22,48 @@ The GPU node must provide NVIDIA/Vulkan support, `setsid`, `bc`, and Git.
 The environments, assets and checkpoint must already exist. Environment setup
 scripts are local infrastructure, not included in this repository.
 
+### Numbered objects required by the shipped scene YAMLs
+
+The RoboFactory downloader alone does not provide the numbered objects referenced
+under `release/perturbation_assets_v1/perturbation_assets_v1/distractors/` by clean
+table scenes. The first all-task attempt (4903978) failed at stack_bowls because
+`002_bowl/model_data3.json` was absent. This is distinct from the non-blocking
+warning about a missing optional perturbation replay manifest.
+
+The upstream RoboTwin dataset `TianxingChen/RoboTwin2.0` provides objects.zip.
+The inspected revision is `ba1ebdd89aac671899a768e62dfe4dc6b29956c8`. This is a
+documented asset source matching the required filenames, not proof of the exact
+paper-run asset revision. Keep the original meshes, annotations and YAMLs intact.
+
+After downloading that objects.zip to `$PROJECT_WS/downloads/robotwin2/` and saving
+the revision in `$PROJECT_WS/robotwin_objects_revision.txt`, submit CPU preparation:
+
+```bash
+sbatch --export=ALL \
+  --output="$PROJECT_WS/logs/scene_assets_%j.out" \
+  --error="$PROJECT_WS/logs/scene_assets_%j.err" \
+  scripts/slurm/prepare_assets.sh
+```
+
+It requests four a100mig CPUs, no GPU, for up to one hour. It extracts the archive
+to `$PROJECT_WS/assets/robotwin2/`, records archive SHA256/revision, maps the required
+`distractors` path to the original objects tree with an absolute symlink, and
+checks declared files for all nine default scene configs. No randomization or
+replay is enabled by this mapping. Existing conflicting directories are refused.
+Allow space for the expanded archive; failed staging directories are retained.
+
+The check can also run independently from the simulator environment:
+
+```bash
+python scripts/slurm/check_scene_assets.py --repo "$PWD" --task all
+```
+
+It checks existence of declared file_path, filename and annotation_path values,
+not physics correctness, rendering, hidden code-generated asset dependencies, or
+equivalence to the authors' meshes. Each GPU job repeats the selected-task file
+check before loading the policy. The per-job snapshot preserves the shared asset
+symlink. Keep the shared asset files unchanged while jobs are running.
+
 ## Preview without starting evaluation
 
 On an Alex login node:
