@@ -14,6 +14,7 @@ test -n "$PROJECT_WS" && test -d "$PROJECT_WS"
 export TRAIN_ROOT="$PROJECT_WS/code/mutil-robots"
 export EVAL_SOURCE="$PROJECT_WS/code/mutil-robots-eval"
 export CHECKPOINT_DIR="${CHECKPOINT_DIR:?Set CHECKPOINT_DIR to the actual checkpoint step directory}"
+export POLICY_CONFIG="${POLICY_CONFIG:-aevla_pi05_skill_lora_two_arms_multitask}"
 test -d "$CHECKPOINT_DIR/params" && test -d "$CHECKPOINT_DIR/assets"
 if [[ $# -eq 0 ]]; then set -- --task stack_cubes; fi
 command -v setsid >/dev/null
@@ -72,6 +73,7 @@ export WARMUP_PHASE_CONFIG="$EVAL_RUN/RoboFactory/script/MACG/two_arms_stack_cub
     echo "Started: $(date -Is)"
     echo "Node: $(hostname -f); Job: $SLURM_JOB_ID"
     echo "Checkpoint: $CHECKPOINT_DIR"
+    echo "Policy config: $POLICY_CONFIG"
     echo "Evaluation Python: $(command -v python)"
     printf 'Official arguments:'; printf ' %q' "$@"; printf '\n'
     echo 'Training revision and status:'
@@ -101,7 +103,7 @@ python "$EVAL_SOURCE/scripts/slurm/check_scene_assets.py" --repo "$EVAL_RUN" "$@
     export XLA_PYTHON_CLIENT_MEM_FRACTION=0.75
     cd "$TRAIN_ROOT"
     exec setsid uv run --project "$TRAIN_ROOT" --frozen --with flask python "$RUN_DIR/serve_warmed.py" \
-        --config aevla_pi05_skill_lora_two_arms_multitask \
+        --config "$POLICY_CONFIG" \
         --checkpoint-dir "$CHECKPOINT_DIR" --host 127.0.0.1 --port 0
 ) > "$RUN_DIR/server.log" 2>&1 &
 SERVER_PID=$!

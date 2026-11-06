@@ -5,6 +5,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -19,6 +20,26 @@ SPEC.loader.exec_module(WAIT)
 
 
 class StartupTests(unittest.TestCase):
+    def test_launcher_resolves_default_and_explicit_model_configs(self):
+        bash = os.environ.get("TEST_BASH") or shutil.which("bash")
+        if not bash:
+            self.skipTest("Bash is required to check launcher configuration expansion")
+        script = (ROOT / "scripts/slurm/eval_official.sh").read_text()
+        prefix = script.split('test -d "$CHECKPOINT_DIR/params"', 1)[0]
+        with tempfile.TemporaryDirectory() as tmp:
+            env = dict(os.environ, FAKE_WS=Path(tmp).as_posix(), CHECKPOINT_DIR=tmp)
+            env.pop("POLICY_CONFIG", None)
+            for selected in (None, "pi0_two_arms_multi_task", "pi05_two_arms_multi_task"):
+                candidate = dict(env)
+                if selected:
+                    candidate["POLICY_CONFIG"] = selected
+                command = ('ws_find() { printf "%s" "$FAKE_WS"; }\n' + prefix
+                           + '\nprintf "%s" "$POLICY_CONFIG"')
+                result = subprocess.run([bash, "-c", command], env=candidate,
+                                        capture_output=True, text=True)
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertEqual(result.stdout, selected or "aevla_pi05_skill_lora_two_arms_multitask")
+
     def test_dead_launcher_reports_original_error(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -100,7 +121,17 @@ class Policy:
         return {'actions': None}
 policy = Policy()
 """,
-                "deploy_minimal.py": "import server_agent0\ndef main(): server_agent0.app.run(host='127.0.0.1', port=0, debug=False)\n",
+                "deploy_minimal.py": """
+import argparse
+import server_agent0
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--config', default='aevla_pi05_skill_lora_two_arms_multitask')
+    parser.add_argument('--checkpoint-dir')
+    args = parser.parse_args()
+    print('Selected config:', args.config)
+    server_agent0.app.run(host='127.0.0.1', port=0, debug=False)
+""",
                 "werkzeug/__init__.py": "",
                 "werkzeug/serving.py": """
 import server_agent0
@@ -125,12 +156,16 @@ def make_server(host, port, app, threaded):
             env = dict(os.environ, TRAIN_ROOT=str(train), RUN_DIR=str(run),
                        WARMUP_PHASE_CONFIG=str(phase), PYTHONIOENCODING="utf-8")
             wrapper = str(ROOT / "scripts/slurm/serve_warmed.py")
-            for args in (["--check-imports"], []):
+            for args in (["--check-imports"], [],
+                         ["--config", "pi0_two_arms_multi_task", "--checkpoint-dir", "pi0/29999"],
+                         ["--config", "pi05_two_arms_multi_task", "--checkpoint-dir", "pi05/29999"]):
                 result = subprocess.run([sys.executable, "-I", wrapper, *args], env=env,
                                         cwd=run, capture_output=True, encoding="utf-8")
                 self.assertEqual(result.returncode, 0, result.stderr)
-                if not args:
+                if args != ["--check-imports"]:
                     self.assertIn("RNG restored", result.stdout)
+                    expected = args[1] if args else "aevla_pi05_skill_lora_two_arms_multitask"
+                    self.assertIn("Selected config: " + expected, result.stdout)
             ready = json.loads((run / "server_ready.json").read_text())
             self.assertEqual(ready["url"], "http://127.0.0.1:54321")
 

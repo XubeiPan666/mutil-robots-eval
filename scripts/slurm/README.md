@@ -95,6 +95,35 @@ The default request is one A40, eight CPUs and 24 hours. The job continues after
 the SSH client disconnects. It stops on completion, errors, cancellation, node
 failure or the Slurm time limit. There is no automatic resume.
 
+### Select the model family
+
+`POLICY_CONFIG` selects the training configuration passed to `deploy_minimal.py`.
+Its default remains `aevla_pi05_skill_lora_two_arms_multitask`. Set it explicitly
+for baselines; changing only CHECKPOINT_DIR does not select another architecture.
+The selected configuration is recorded in run_info.txt. Keep the matching
+six-task data paths exported for all three model families:
+
+```bash
+export FUTURE_DATA_ROOT="$PROJECT_WS/datasets/paper6"
+export FUTURE_DATASET_DIR="$FUTURE_DATA_ROOT/multi_task_combined"
+export FUTURE_ASSETS_DIR="$FUTURE_DATA_ROOT"
+
+# Pi0 final checkpoint. For Pi0.5 use pi05_two_arms_multi_task and
+# checkpoints/pi05_two_arms_multi_task/pi05_paper6_4928471/29999 instead.
+export POLICY_CONFIG=pi0_two_arms_multi_task
+export CHECKPOINT_DIR="$PROJECT_WS/checkpoints/pi0_two_arms_multi_task/pi0_paper6_4928449/29999"
+sbatch --export=ALL --job-name=pi0-stack-final \
+  --output="$PROJECT_WS/logs/eval_official_%j.out" \
+  --error="$PROJECT_WS/logs/eval_official_%j.err" \
+  scripts/slurm/eval_official.sh --task stack_cubes
+```
+
+Normalization is loaded from each checkpoint's assets using that model's config;
+Pi0 uses mean/std and Pi0.5 uses quantiles. No evaluator, seed, prompt, action
+execution, or scoring changes are introduced by this selection. Each job still
+loads one policy and evaluates the selected tasks sequentially. Clear or reset
+POLICY_CONFIG before later AE-VLA submissions if reusing the same shell.
+
 Task selection is passed directly to the official launcher:
 
 ```text
